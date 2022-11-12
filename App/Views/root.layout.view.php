@@ -37,7 +37,11 @@
                 <a href="?c=gallery">Kvetinace</a>
                 <a href="?c=blog">FAQ</a>
                 <a href="#section-contact">Kontakt</a>
+                <a href="?c=login">Prihlásenie</a>
+
+
             </div>
+
             <!--HAMBURGER , onclick - javascript -->
             <a href="javascript:void(0);" class="Icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>

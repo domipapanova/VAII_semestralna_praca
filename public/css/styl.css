@@ -56,11 +56,12 @@ ul{
     padding-right: 2%;
 }
 
+
 #top a:hover {
     color: mediumseagreen;
 }
 
-#myLinks{
+#myLinks {
     display: flex;
     margin-left: 22%;
 }
@@ -262,9 +263,10 @@ footer li:last-child:after{
         display: block;
     }
 
-    .myLinks{
+    .myLinks {
         display: none;
     }
+
 
     .myLinks a {
         display: block;
@@ -278,13 +280,16 @@ footer li:last-child:after{
         line-height: 30px;
     }
 
+
     #top a:hover {
         color: grey;
     }
 
-    #myLinks{
+
+
+    #myLinks {
         display: none;
-        background: #989898;
+        background: #82A37A;
         margin: 0;
     }
 
@@ -308,7 +313,7 @@ footer li:last-child:after{
     }
 
     #top a:hover {
-        background-color: #ddd;
+        background-color: #A5C79D;
         color: black;
     }
 
@@ -543,3 +548,27 @@ h1:hover {
     z-index: 1;
 }
 
+/* login */
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right,#5A8F62,#6C9E6C,#D67273,  #D45557);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right,#5A8F62,#6C9E6C,#D67273,  #D45557);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
