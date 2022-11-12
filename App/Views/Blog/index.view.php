@@ -7,7 +7,7 @@
                 <p>Červce, roztoče či štítničky patria k najbežnejším a najnepríjemnejším škodcom. Dôležitá je preto pravidelná kontrola rastlín a prevencia.</p>
             </div>
             <div class="obr">
-                <p> <img src="./public/images/plant-care.jpg" alt="Generic placeholder image"></p>
+                <p> <img src=".\public\images\plant-care.jpg" alt="Generic placeholder image"></p>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
                 <p>Očarujúca papraď! Splňte týchto 5 podmienok a bude sa vám v pestovaní dariť</p>
             </div>
             <div class="obr">
-                <p> <img src="./public/images/paprad.jpg" alt="Generic placeholder image"></p>
+                <p> <img src=".\public\images\paprad.jpg" alt="Generic placeholder image"></p>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                 <p>Prečítajte si naše rady a triky, ako pripraviť svoju záhradu na náročne zimné obdobie. Všetko sa dozviete v našom članku.</p>
             </div>
             <div class="obr">
-                <p> <img src="./public/images/zima.jpg" alt="Generic placeholder image"></p>
+                <p> <img src=".\public\images\zima.jpg" alt="Generic placeholder image"></p>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
                 <p>Milujete ruže? Tak si prečítajte naše rady ako ich donútiť kvitnúť čo najdlhšie.</p>
             </div>
             <div class="obr">
-                <p> <img src="./public/images/ruze.jpg" alt="Generic placeholder image"></p>
+                <p> <img src=".\public\images\ruze.jpg" alt="Generic placeholder image"></p>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
                 <p>Ukážeme vám krok po kroku ako vysádzať jarné cibuľoviny a tak sa pripraviť na jar</p>
             </div>
             <div class="obr">
-                <p> <img src="./public/images/cibuloviny.jpg" alt="Generic placeholder image"></p>
+                <p> <img src=".\public\images\cibuloviny.jpg" alt="Generic placeholder image"></p>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                 <p>Síce väčšinu balkónových rastlín je nutné pred zimou zlikvidovať, nájdete medzi nimi aj také, ktoré vás budú svojou krásou tešiť aj budúcu sezónu. Ktoré sú to a ako sa o ne teraz postarať?</p>
             </div>
             <div class="obr">
-                <p> <img src="./public/images/balkon.jpg" alt="Generic placeholder image"></p>
+                <p> <img src=".\public\images\balkon.jpg" alt="Generic placeholder image"></p>
             </div>
         </div>
     </div>
@@ -97,21 +97,21 @@
         <div class="text">
 
             <div class="box">
-                <p><img src="./public/images/f1.jpg" alt="Instant Image"></p>
+                <p><img src=".\public\images\f1.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Damián Kukurica</p>
                 </div>
             </div>
 
             <div class="box">
-                <p> <img src="./public/images/f3.jpg" alt="Instant Image"></p>
+                <p> <img src=".\public\images\f3.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Dominika Papánová</p>
                 </div>
             </div>
 
             <div class="box">
-                <p><img src="./public/images/f2.jpg" alt="Instant Image"></p>
+                <p><img src=".\public\images\f2.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Hana Mrkvičková</p>
                 </div>
@@ -120,24 +120,3 @@
     </div>
 </section>
 
-<section id="section-contact" >
-    <div class="content">
-        <p>Contact us:</p>
-        <div class="personal-info">
-
-            <ul class="menu personal">
-                <li><i class="fa fa-mobile-phone"></i><a href="tel:0944673050">0944 673 050</a></li>
-                <li><i class="fa fa fa-envelope"></i><a href="mailto:anonym@gmail.com">plantplace@gmail.com</a></li>
-            </ul>
-
-            <ul class="menu social">
-                <li><a href="https://www.skype.com/en/"  class="social-icon" target="_blank"><i class="fa fa-skype" ></i></a></li>
-                <li><a href="https://www.facebook.com/" class="social-icon"  target="_blank"><i class="fa fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com/"  class="social-icon" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.youtube.com/"  class="social-icon" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                <li><a href="https://www.twitch.tv/"  class="social-icon" target="_blank"><i class="fa fa-twitch"></i></a></li>
-                <li><a href="https://www.instagram.com/" class="social-icon" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</section>
