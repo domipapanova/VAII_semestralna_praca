@@ -24,18 +24,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>PlantPlace</title>
 </head>
-<body onresize="screen_resize()"> <!-- onresize , pre javascript-->
-<div class="container">
+<div onresize="screen_resize()"> <!-- onresize , pre javascript-->
+<!--<div class="container"> -->
     <section id="top">
         <nav id="navbar">
             <a href="domov.html" class="Plant">
                 <img src="./public/images/plant_head.png" alt="icon">
             </a>
             <div id="myLinks" class="navbar-nav-items">
-                <a href="domov.html">Domov</a>
-                <a href="galeria.html">Rastliny</a>
-                <a href="galeria.html">Kvetinace</a>
-                <a href="blog.html">FAQ</a>
+                <a href="?c=home">Domov</a>
+                <a href="?c=gallery">Rastliny</a>
+                <a href="?c=gallery">Kvetinace</a>
+                <a href="?c=blog">FAQ</a>
                 <a href="#section-contact">Kontakt</a>
             </div>
             <!--HAMBURGER , onclick - javascript -->
@@ -55,16 +55,15 @@
         <div class="content">
             <p> design by PlantLover</p>
             <ul class="menu nav-footer">
-                <li><a href="domov.html">Domov</a></li>
-                <li><a href="galeria.html">Rastlinky</a></li>
-                <li><a href="galeria.html">Kvetinace</a></li>
-                <li><a href="blog.html">FAQ</a></li>
+                <li><a href="?c=home">Domov</a></li>
+                <li><a href="?c=gallery">Rastlinky</a></li>
+                <li><a href="?c=gallery">Kvetinace</a></li>
+                <li><a href="?c=blog">FAQ</a></li>
                 <li><a href="#section-contact">Kontakt</a></li>
             </ul>
         </div>
     </footer>
 </div>
-
 <script>
     function screen_resize() {
         var w = parseInt(window.innerWidth);
