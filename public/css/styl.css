@@ -548,6 +548,10 @@ h1:hover {
     z-index: 1;
 }
 
+.col:hover img{
+    opacity: 0.3;
+}
+
 /* login */
 
 .gradient-custom-2 {
