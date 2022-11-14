@@ -38,6 +38,8 @@
                 <a href="?c=blog">FAQ</a>
                 <a href="#section-contact">Kontakt</a>
                 <a href="?c=auth&a=login">Prihlásenie</a>
+                <a href="?c=review">Recenzie</a>
+
 
 
             </div>

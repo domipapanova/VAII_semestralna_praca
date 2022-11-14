@@ -1,3 +1,5 @@
+<?php /* @var \App\Models\User $data */ ?>
+
 <section class="vh-100" style="background-color: #BFD9C3;">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
