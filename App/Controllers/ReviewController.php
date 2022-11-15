@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Models\Post;
 use App\Models\Review;
 
 class ReviewController extends AControllerBase
@@ -27,12 +28,33 @@ class ReviewController extends AControllerBase
     }
 
     /**
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        $review = Review::getOne($this->request()->getValue('id_review'));
+        $review->delete();
+
+        return $this->redirect("?c=review");
+    }
+
+    public function edit()
+    {
+        return $this->html([
+            'review' => Review::getOne($this->request()->getValue('id_review'))
+        ],
+            'create'
+        );
+    }
+    /**
      * @return  \App\Core\Responses\RedirectResponse
      * @throws \Exception
      */
     public function store()
     {
-        $review = new Review();
+        $id = $this->request()->getValue('id');
+        $review = ($id ? Review::getOne($id) : new Review());
+
         $review->setMeno($this->request()->getValue('meno'));
         $review->setText($this->request()->getValue('text'));
         $review->save();

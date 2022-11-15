@@ -22,6 +22,9 @@
                                     <p class="fw-bold lead mb-2"><strong><?=$row->getMeno()?></strong></p>
                                 </div>
                             </div>
+                            <a href="?c=review&a=edit&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>
+                            <a href="?c=review&a=delete&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>
+
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,7 @@ $review = $data['review'];
     <h5 class="mb-4">Pridaj hodnotenie našej predajne </h5>
 
     <form method="post" action="?c=review&a=store">
+        <input type="hidden" value="<?= $review->getIdReview() ?>" name="id">
         <div class="form-group">
             <label>Meno</label>
             <input type="text" class="form-control form-control-lg" name="meno" value="<?=$review->getMeno();?>" />
