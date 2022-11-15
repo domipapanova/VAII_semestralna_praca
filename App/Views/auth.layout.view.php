@@ -21,6 +21,31 @@
     <script src="public/js/script.js"></script>
 </head>
 <body>
+<div onresize="screen_resize()"> <!-- onresize , pre javascript-->
+    <!--<div class="container"> -->
+    <section id="top">
+        <nav id="navbar">
+            <a href="domov.html" class="Plant">
+                <img src="./public/images/plant_head.png" alt="icon">
+            </a>
+            <div id="myLinks" class="navbar-nav-items">
+                <a href="?c=home">Domov</a>
+                <a href="?c=gallery">Rastliny</a>
+                <a href="?c=gallery">Kvetinace</a>
+                <a href="?c=blog">FAQ</a>
+                <a href="#section-contact">Kontakt</a>
+                <a href="?c=review">Recenzie</a>
+                <a href="?c=auth&a=logout">Odhlasenie</a>
+
+            </div>
+
+            <!--HAMBURGER , onclick - javascript -->
+            <a href="javascript:void(0);" class="Icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+    </section>
+
 <div class="container-fluid mt-3">
     <div class="web-content">
         <?= $contentHTML ?>

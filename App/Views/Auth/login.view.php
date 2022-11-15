@@ -1,3 +1,6 @@
+<?php
+/** @var Array $data */
+?>
 <section class="h-100 gradient-form" style="background-color: #eee;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -12,23 +15,20 @@
                                          style="width: 185px;" alt="logo">
                                     <h4 class="mt-1 mb-5 pb-1">Vitajte u nás, vaše PlantPlace</h4>
                                 </div>
-
-                                <form>
+                                <form class="form-signin" method="post" action="<?= \App\Config\Configuration::LOGIN_URL ?>">
                                     <p>Prosím, prihláste sa do vášho účtu</p>
-
+                                    <div class="text-center text-danger mb-3 "> <?= @$data['message'] ?></div>
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form2Example11" class="form-control"
-                                               placeholder="email" />
-                                        <label class="form-label" for="form2Example11">Emailová adresa</label>
+                                        <input name="login" type="text" id="login" class="form-control" placeholder="Login" required autofocus />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form2Example22" class="form-control" />
-                                        <label class="form-label" for="form2Example22">Heslo</label>
+                                        <input name="password" type="password" id="password" class="form-control"
+                                               placeholder="Password" required>
                                     </div>
 
                                     <div class="text-center pt-1 mb-5 pb-1">
-                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Prihlásiť sa</button>
+                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Prihlásiť sa</button>
                                         <a class="text-muted" href="#!">Zabudli ste heslo?</a>
                                     </div>
 

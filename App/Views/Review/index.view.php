@@ -1,4 +1,7 @@
-<?php /* @var \App\Models\Review[] $data */ ?>
+<?php /* @var \App\Models\Review[] $data */
+/** @var \App\Core\IAuthenticator $auth */
+
+?>
     <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
         <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Ešte si nás neohodnotil? </h4>
          <a href="?c=review&a=create"><button type="button" class="btn btn-outline-success">Ohodnoť nás</button> </a>
@@ -22,9 +25,11 @@
                                     <p class="fw-bold lead mb-2"><strong><?=$row->getMeno()?></strong></p>
                                 </div>
                             </div>
+                            <?php if ($auth->isLogged()) { ?>
+
                             <a href="?c=review&a=edit&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>
                             <a href="?c=review&a=delete&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>
-
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

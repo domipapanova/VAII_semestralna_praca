@@ -11,7 +11,7 @@ use App\Auth\AnyLoginAuthenticator;
  */
 class Configuration
 {
-    public const APP_NAME = 'Príspevky';
+    public const APP_NAME = 'PlantPlace';
     public const FW_VERSION = '2.0';
 
     public const DB_HOST = 'localhost';  // change to db, if docker you use docker

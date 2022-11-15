@@ -22,8 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <!-- LINK NA IKONY-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>PlantPlace</title>
 </head>
+
 <div onresize="screen_resize()"> <!-- onresize , pre javascript-->
 <!--<div class="container"> -->
     <section id="top">
@@ -37,8 +37,12 @@
                 <a href="?c=gallery">Kvetinace</a>
                 <a href="?c=blog">FAQ</a>
                 <a href="#section-contact">Kontakt</a>
-                <a href="?c=auth&a=login">Prihlásenie</a>
                 <a href="?c=review">Recenzie</a>
+                <?php if ($auth->isLogged()) { ?>
+                    <a href="?c=auth&a=logout">Odlhásenie</a>
+                <?php } else { ?>
+                <a href="?c=auth&a=login">Prihlásenie</a>
+                <?php } ?>
 
 
 
