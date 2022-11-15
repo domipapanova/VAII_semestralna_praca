@@ -42,10 +42,6 @@ class Review extends Model
         $this->text = $text;
     }
 
-    static public function setDbColumns()
-    {
-        return [ 'id_review' ,'text', 'meno'];
-    }
 
     /**
      * @return mixed
@@ -68,5 +64,16 @@ class Review extends Model
     {
         return 'reviews';
     }
+
+    static public function setDbColumns()
+    {
+        return [ 'id_review' ,'text', 'meno'];
+    }
+
+    public static function getPkColumnName(): string
+    {
+        return 'id_review';
+    }
+
 
 }

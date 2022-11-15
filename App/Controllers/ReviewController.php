@@ -9,17 +9,27 @@ use App\Models\Review;
 class ReviewController extends AControllerBase
 {
 
+    /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
     public function index(): Response
     {
         $reviews = Review::getAll();
         return  $this->html($reviews);
     }
 
-    public function create(): Response
+    public function create()
     {
-        return  $this->html();
+        return  $this->html([
+            'review' => new Review()
+        ], 'create');
     }
 
+    /**
+     * @return  \App\Core\Responses\RedirectResponse
+     * @throws \Exception
+     */
     public function store()
     {
         $review = new Review();
@@ -28,5 +38,6 @@ class ReviewController extends AControllerBase
         $review->save();
 
         return $this->redirect("?c=review");
+
     }
 }
