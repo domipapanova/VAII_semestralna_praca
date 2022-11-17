@@ -1,4 +1,12 @@
-<?php /* @var \App\Models\Product[] $data */ ?>
+<?php /* @var \App\Models\Product[] $data */
+/** @var \App\Core\IAuthenticator $auth */
+?>
+
+
+<?php if ($auth->isLogged()) { ?>
+    <a href="?c=gallery&a=create"><button type="button" class="btn btn-outline-success"> Nový príspevok</button> </a>
+
+<?php } ?>
 
 <div class="album py-5 bg-light">
         <div class="container">
@@ -14,6 +22,7 @@
                                 <small class="text-muted">13.99€</small>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -24,11 +33,16 @@
 
                         <div class="card-body">
                             <h5 clas="card-title"><?=$row->getProductName()?></h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?=$row->getDescription()?></p>
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <small class="text-muted"><?=$row->getPrice()?>€</small>
                             </div>
+                            <?php if ($auth->isLogged()) { ?>
+
+                                <a href="?c=gallery&a=edit&id_product=<?= $row->getIdProduct() ?>"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>
+                                <a href="?c=gallery&a=delete&id_product=<?= $row->getIdProduct() ?>"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

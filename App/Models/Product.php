@@ -6,102 +6,124 @@ use App\Core\Model;
 
 class Product extends Model
 {
-    protected int $id_product;
-    protected string $product_name;
-    protected float $price;
-    protected string $picture_name;
-    protected ?int $category;
-
-
+    protected  $id_product;
+    protected  $product_name;
+    protected  $price;
+    protected  $picture_name;
+    protected  $category;
+    protected $description;
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getProductId(): int
+    public function getIdProduct()
     {
         return $this->id_product;
     }
 
     /**
-     * @param int $product_id
+     * @param mixed $id_product
      */
-    public function setProductId(int $product_id): void
+    public function setIdProduct($id_product): void
     {
-        $this->id_product = $product_id;
+        $this->id_product = $id_product;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getProductName(): string
+    public function getProductName()
     {
         return $this->product_name;
     }
 
     /**
-     * @param string $product_name
+     * @param mixed $product_name
      */
-    public function setProductName(string $product_name): void
+    public function setProductName($product_name): void
     {
         $this->product_name = $product_name;
     }
 
     /**
-     * @return float
+     * @return mixed
      */
-    public function getPrice(): float
+    public function getPrice()
     {
         return $this->price;
     }
 
     /**
-     * @param float $price
+     * @param mixed $price
      */
-    public function setPrice(float $price): void
+    public function setPrice($price): void
     {
         $this->price = $price;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getPictureName(): string
+    public function getPictureName()
     {
         return $this->picture_name;
     }
 
     /**
-     * @param string $picture_name
+     * @param mixed $picture_name
      */
-    public function setPictureName(string $picture_name): void
+    public function setPictureName($picture_name): void
     {
         $this->picture_name = $picture_name;
     }
 
     /**
-     * @return int|null
+     * @return mixed
      */
-    public function getCategory(): ?int
+    public function getCategory()
     {
         return $this->category;
     }
 
     /**
-     * @param int|null $category
+     * @param mixed $category
      */
-    public function setCategory(?int $category): void
+    public function setCategory($category): void
     {
         $this->category = $category;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+
+
     static public function setDbColumns()
     {
-        return [ 'id_product' ,'product_name', 'price', 'picture_name', 'category'];
+        return [ 'id_product' ,'product_name', 'price', 'picture_name', 'category' , 'description'];
     }
 
     static public function setTableName()
     {
         return 'products';
+    }
+
+    public static function getPkColumnName(): string
+    {
+        return 'id_product';
     }
 
 
