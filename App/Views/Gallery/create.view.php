@@ -7,7 +7,7 @@ use App\Models\Product;
 /** @var Review $product */
 $product = $data['product'];
 ?>
-<form name="newProduct" method="post" action="?c=gallery&a=store" onsubmit="return validateProduct()">
+<form name="newProduct" method="get" action="?c=gallery&a=store" onsubmit="return validateProduct()">
     <input type="hidden" value="<?= $product->getIdProduct() ?>" name="id" >
 
     <div class="form-group">
@@ -38,7 +38,7 @@ $product = $data['product'];
 
     <div class="form-group">
         <label for="exampleFormControlFile1">Vyber obrázok</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="obrazok" value="<?=$product->getPictureName();?>>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="obrazok" value="<?=$product->getPictureName();?>">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-sm" > Pridať </button>

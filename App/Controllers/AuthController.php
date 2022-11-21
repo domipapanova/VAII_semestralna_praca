@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Config\Configuration;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Models\Product;
+use App\Models\User;
 
 /**
  * Class AuthController
@@ -51,9 +53,6 @@ class AuthController extends AControllerBase
         return $this->html();
     }
 
-    public function signup(): Response
-    {
-        return $this->html();
-    }
+
 
 }

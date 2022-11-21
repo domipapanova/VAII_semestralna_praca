@@ -18,7 +18,7 @@ $review = $data['review'];
         </div>
         <div class="form-group">
             <label>Váš komentár</label>
-            <textarea class="form-control" name="text" onchange="checkText()" ><?=$review->getText();?></textarea>
+            <textarea class="form-control" name="text"  ><?=$review->getText();?></textarea>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-sm" > Pridať </button>

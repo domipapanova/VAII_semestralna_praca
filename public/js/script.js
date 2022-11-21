@@ -83,13 +83,109 @@
     }
 
 
+
+        function validateRegistration() {
+        let firstName = document.forms["registrationForm"]["firstName"].value;
+        let lastName = document.forms["registrationForm"]["lastName"].value;
+        let login = document.forms["registrationForm"]["login"].value;
+        let email = document.forms["registrationForm"]["email"].value;
+        let phoneNum = document.forms["registrationForm"]["phoneNumber"].value;
+        let hash = document.forms["registrationForm"]["password"].value;
+
+        if((login === "" && email === "") && hash === "") {
+            let warning = document.getElementById("main_output");
+            warning.hidden = false;
+            warning.style = "color:red";
+            warning.innerText = "Prosím zadajte váš povinne udaje";
+            return false;
+        }
+
+        if(login === "" ) {
+        let warning = document.getElementById("login_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Prosím zadajte váš login";
+
+        return false;
+    }
+
+        if(email === "" ) {
+        let warning = document.getElementById("email_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Prosím zadajte váš email";
+
+        return false;
+    }
+
+        if(hash === "" ) {
+        let warning = document.getElementById("pswd_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Prosím zadajte váše heslo";
+
+        return false;
+    }
+
+        if(login.length >  30) {
+        let warning = document.getElementById("login_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Presiahli ste maximálnu dĺžku loginu";
+        return false;
+    }
+
+
+        if(email.length >  255) {
+        let warning = document.getElementById("email_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Presiahli ste maximálnu dĺžku emailu";
+        return false;
+    }
+
+        if(hash.length >  30) {
+        let warning = document.getElementById("pswd_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Presiahli ste maximálnu dĺžku hesla";
+        return false;
+    }
+
+        if(firstName.length >  50) {
+        let warning = document.getElementById("firstName_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Presiahli ste maximálnu dĺžku mena";
+        return false;
+    }
+
+        if(lastName.length >  50) {
+        let warning = document.getElementById("lastName_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Presiahli ste maximálnu dĺžku priezviska";
+        return false;
+    }
+
+        if(phoneNum.length >  13) {
+        let warning = document.getElementById("phone_input");
+        warning.hidden = false;
+        warning.style = "color:red";
+        warning.innerText = "Presiahli ste maximálnu dĺžku telefónneho čísla";
+        return false;
+    }
+        return true;
+    }
+
+
     window.onload = function () {
         let buttons = document.querySelectorAll(".btn-outline-success");
         for (let i = 0; i < buttons.length; i++) {
             let button = buttons[i];
             button.onclick = function () {
                 let p = button.nextElementSibling;
-                if (p.style.display === "none") {
+                if (p.style.display == "none") {
                     p.style.display = "inline";
                     button.innerText= "Zavriet";
                 } else {
@@ -99,6 +195,9 @@
                 }
             }
         }
+
+
+
     }
 
 

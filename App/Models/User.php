@@ -6,10 +6,20 @@ use App\Core\Model;
 
 class User extends Model
 {
-    public int $id;
-    public string $login;
-    public string $email;
-    public string $hash;
+    protected  $id;
+    protected  $login;
+    protected  $email;
+    protected  $hash;
+    protected  $first_name;
+    protected  $last_name;
+    protected  $phone_number;
+
+
+
+    static public function setDbColumns()
+    {
+        return [ 'id' ,'login', 'emal', 'password'];
+    }
 
     /**
      * @return mixed
@@ -75,9 +85,52 @@ class User extends Model
         $this->hash = $hash;
     }
 
-    static public function setDbColumns()
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
     {
-        return [ 'id' ,'login', 'emal', 'password'];
+        return $this->first_name;
+    }
+
+    /**
+     * @param mixed $first_name
+     */
+    public function setFirstName($first_name): void
+    {
+        $this->first_name = $first_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param mixed $last_name
+     */
+    public function setLastName($last_name): void
+    {
+        $this->last_name = $last_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phone_number;
+    }
+
+    /**
+     * @param mixed $phone_number
+     */
+    public function setPhoneNumber($phone_number): void
+    {
+        $this->phone_number = $phone_number;
     }
 
     static public function setTableName()

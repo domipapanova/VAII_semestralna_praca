@@ -35,7 +35,7 @@
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Ešte nemáte svoj účet?</p>
-                                        <a href="?c=auth&a=signup"> <button type="button" class="btn btn-outline-danger">Vytvorte nový</button> </a>
+                                        <a href="?c=registration"> <button type="button" class="btn btn-outline-danger">Vytvorte nový</button> </a>
                                     </div>
 
                                 </form>
@@ -56,4 +56,6 @@
             </div>
         </div>
     </div>
+
+
 </section>
