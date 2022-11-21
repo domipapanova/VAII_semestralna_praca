@@ -35,6 +35,7 @@
         let name = document.forms["newProduct"]["nazov"].value;
         let price = document.forms["newProduct"]["cena"].value;
         let text = document.forms["newProduct"]["popis"].value;
+        let img = document.forms["newProduct"]["obrazok"].value;
         if(name == "" ) {
             let warning = document.getElementById("nazov_input");
             warning.hidden = false;
@@ -80,3 +81,26 @@
 
         return true;
     }
+
+
+    window.onload = function () {
+        let buttons = document.querySelectorAll(".btn-outline-success");
+        for (let i = 0; i < buttons.length; i++) {
+            let button = buttons[i];
+            button.onclick = function () {
+                let p = button.nextElementSibling;
+                if (p.style.display === "none") {
+                    p.style.display = "inline";
+                    button.innerText= "Zavriet";
+                } else {
+                    p.style.display = "none"
+                    button.innerText= "Viac info"
+
+                }
+            }
+        }
+    }
+
+
+
+

@@ -60,7 +60,9 @@ class GalleryController extends AControllerBase
         $product->setPrice($this->request()->getValue('cena'));
         /*$product->setCategory($this->request()->getValue('kategoria'));*/
         $product->setDescription($this->request()->getValue('popis'));
-        $product->setPictureName($this->request()->getValue('obrazok'));
+        if($this->request()->getValue('obrazok') != null) {
+            $product->setPictureName($this->request()->getValue('obrazok'));
+        }
 
         $product->save();
 

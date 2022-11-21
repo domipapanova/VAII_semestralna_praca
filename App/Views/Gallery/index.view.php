@@ -8,7 +8,7 @@
 
 <?php } ?>
 
-<div class="album py-5 bg-light">
+<div class="album py-5 bg-light" >
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col position-static">
@@ -16,7 +16,8 @@
                         <img src="./public/images/svokryne.webp" alt="product image">
                         <div class="card-body">
                             <h5 clas="card-title">Sansevieria trifasciata ‘Laurentii’</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <button type="button" id="buttonInfo" class="btn btn-outline-success">Viac info</button>
+                            <p class="card-infoProduct">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <small class="text-muted">13.99€</small>
@@ -33,7 +34,8 @@
 
                         <div class="card-body">
                             <h5 clas="card-title"><?=$row->getProductName()?></h5>
-                            <p class="card-text"><?=$row->getDescription()?></p>
+                            <button type="button" id="buttonInfo" class="btn btn-outline-success">Viac info</button>
+                            <p class="card-infoProduct" id="infoProduct" ><?=$row->getDescription()?></p>
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <small class="text-muted"><?=$row->getPrice()?>€</small>

@@ -23,7 +23,7 @@
     <!-- LINK NA IKONY-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
+<body>
 <div onresize="screen_resize()"> <!-- onresize , pre javascript-->
 <!--<div class="container"> -->
     <section id="top">
@@ -79,7 +79,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="content">
             <p> design by Domi Papánová</p>
@@ -107,6 +106,7 @@
             x.style.display = "block"; /*zobrazit ponuku*/
         }
     }
+
 </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 /** @var Array $data */
+
 ?>
 <section class="h-100 gradient-form" style="background-color: #eee;">
     <div class="container py-5 h-100">
@@ -34,7 +35,7 @@
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Ešte nemáte svoj účet?</p>
-                                        <a href="?c=signup"> <button type="button" class="btn btn-outline-danger">Vytvorte nový</button> </a>
+                                        <a href="?c=auth&a=signup"> <button type="button" class="btn btn-outline-danger">Vytvorte nový</button> </a>
                                     </div>
 
                                 </form>

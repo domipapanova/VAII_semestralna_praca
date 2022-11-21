@@ -648,3 +648,11 @@ img {
 .font-cond-b {
     font-weight: 70
 }
+
+button .buttonInfo {
+    cursor: pointer;
+}
+
+.card-infoProduct {
+    display: none;
+}
