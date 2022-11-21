@@ -37,11 +37,8 @@
         let text = document.forms["newProduct"]["popis"].value;
         let img = document.forms["newProduct"]["obrazok"].value;
         if(name == "" ) {
-            let warning = document.getElementById("nazov_input");
-            warning.hidden = false;
-            warning.style = "color:red";
-            warning.innerText = "Prosím zadajte názov produktu";
 
+            warning("nazov_input", "Prosím zadajte názov produktu");
             return false;
         }
 
@@ -110,13 +107,13 @@
     }
 
         if(email === "" ) {
-        let warning = document.getElementById("email_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Prosím zadajte váš email";
+            warning("email_input","Prosím zadajte váš email");
+            return false;
+        }
 
-        return false;
-    }
+        if (validateEmail(email) === false) {
+            return false;
+        }
 
         if(hash === "" ) {
         let warning = document.getElementById("pswd_input");
@@ -168,14 +165,28 @@
         return false;
     }
 
-        if(phoneNum.length >  13) {
-        let warning = document.getElementById("phone_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Presiahli ste maximálnu dĺžku telefónneho čísla";
-        return false;
+        if(phoneNum.length != "" && phoneNum.length !=  13) {
+            warning("phone_input","Zadali ste nespravnu dĺžku telefónneho čísla" );
+            return false;
     }
         return true;
+    }
+
+    function validateEmail(email) {
+        let format = /^\S+@\S+.\S+$/;
+            if (format.test(email)==true) {
+            return true;
+        } else {
+            warning("email_input", "Zadali ste email v nespravnom formate")
+            return false;
+        }
+    }
+
+    function warning(input, text) {
+        let warning = document.getElementById(input);
+            warning.hidden = false;
+            warning.style = "color:red";
+            warning.innerText = text;
     }
 
 
@@ -195,9 +206,6 @@
                 }
             }
         }
-
-
-
     }
 
 
