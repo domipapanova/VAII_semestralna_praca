@@ -14,10 +14,12 @@ $review = $data['review'];
         <input type="hidden" value="<?= $review->getIdReview() ?>" name="id" >
         <div class="form-group">
             <label>Meno</label>
+            <p id="title_input" hidden></p>
             <input type="text" class="form-control form-control-lg" name="meno" value="<?=$review->getMeno();?>" />
         </div>
         <div class="form-group">
             <label>Váš komentár</label>
+            <p id="review_input" hidden></p>
             <textarea class="form-control" name="text"  ><?=$review->getText();?></textarea>
         </div>
         <div class="form-group">

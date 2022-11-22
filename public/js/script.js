@@ -3,32 +3,27 @@
         let name = document.forms["review"]["meno"].value;
         let text = document.forms["review"]["text"].value;
         if(name == "" ) {
-            alert("Povinny údaj - meno");
+            warning("title_input","Povinny údaj");
+            return false;
+        }
+
+
+        if(text == "" ) {
+            warning("review_input","Povinny údaj");
             return false;
         }
 
         if(name.length >  30) {
-            alert("Presiahli ste maximálnu dĺžku mena");
-            return false;
-        }
-
-        if(text == "" ) {
-            alert("Povinny údaj - text");
-            return false;
-        }
-
-        if(text.length >  30) {
-            alert("Presiahli ste maximálnu dĺžku mena");
+            warning("title_input","Presiahli ste maximálnu dĺžku mena");
             return false;
         }
 
         if(text.length >  2000) {
-            alert("Presiahli ste maximálnu kapacitu textu");
+            warning("review_input","Presiahli ste maximálnu kapacitu textu");
             return false;
         }
 
         return true;
-
     }
 
     function validateProduct() {
@@ -36,43 +31,30 @@
         let price = document.forms["newProduct"]["cena"].value;
         let text = document.forms["newProduct"]["popis"].value;
         let img = document.forms["newProduct"]["obrazok"].value;
-        if(name == "" ) {
-
+        if(name === "" ) {
             warning("nazov_input", "Prosím zadajte názov produktu");
             return false;
         }
 
         if(name.length >  50) {
-            let warning = document.getElementById("nazov_input");
-            warning.hidden = false;
-            warning.style = "color:red";
-            warning.innerText = "Presiahli ste maximálnu dĺžku názvu";
+            warning("nazov_input","Presiahli ste maximálnu dĺžku názvu")
             return false;
         }
 
 
         if(text.length >  1000) {
-            let warning = document.getElementById("popis_input");
-            warning.hidden = false;
-            warning.style = "color:red";
-            warning.innerText = "Presiahli ste maximálnu dĺžku textu";
+            warning("popis_input","Presiahli ste maximálnu dĺžku textu");
             return false;
         }
 
 
-        if(price == "" ) {
-            let warning = document.getElementById("cena_input");
-            warning.hidden = false;
-            warning.style = "color:red";
-            warning.innerText = "Prosím zadajte cenu produktu";
+        if(price === "" ) {
+            warning("cena_input","Prosím zadajte cenu produktu")
             return false;
         }
 
         if(isNaN(price) || price < 0 || price >= 10000) {
-            let warning = document.getElementById("cena_input");
-            warning.hidden = false;
-            warning.style = "color:red";
-            warning.innerText = "Zlá hodnota alebo príliš veľká";
+            warning("cena_input","Zlá hodnota alebo príliš veľká");
             return false;
         }
 
@@ -90,21 +72,14 @@
         let hash = document.forms["registrationForm"]["password"].value;
 
         if((login === "" && email === "") && hash === "") {
-            let warning = document.getElementById("main_output");
-            warning.hidden = false;
-            warning.style = "color:red";
-            warning.innerText = "Prosím zadajte váš povinne udaje";
+            warning("main_output", "Prosím zadajte povinne udaje označené *");
             return false;
         }
 
         if(login === "" ) {
-        let warning = document.getElementById("login_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Prosím zadajte váš login";
-
-        return false;
-    }
+            warning("login_input","Prosím zadajte váš login")
+            return false;
+        }
 
         if(email === "" ) {
             warning("email_input","Prosím zadajte váš email");
@@ -116,68 +91,49 @@
         }
 
         if(hash === "" ) {
-        let warning = document.getElementById("pswd_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Prosím zadajte váše heslo";
-
-        return false;
-    }
+            warning("pswd_input","Prosím zadajte váše heslo" );
+            return false;
+        }
 
         if(login.length >  30) {
-        let warning = document.getElementById("login_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Presiahli ste maximálnu dĺžku loginu";
-        return false;
-    }
+            warning("login_input","Presiahli ste maximálnu dĺžku loginu");
+            return false;
+        }
 
 
         if(email.length >  255) {
-        let warning = document.getElementById("email_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Presiahli ste maximálnu dĺžku emailu";
-        return false;
-    }
+            warning("email_input", "Presiahli ste maximálnu dĺžku emailu");
+             return false;
+        }
 
         if(hash.length >  30) {
-        let warning = document.getElementById("pswd_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Presiahli ste maximálnu dĺžku hesla";
-        return false;
-    }
+            warning("pswd_input","Presiahli ste maximálnu dĺžku hesla" );
+            return false;
+        }
 
         if(firstName.length >  50) {
-        let warning = document.getElementById("firstName_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Presiahli ste maximálnu dĺžku mena";
-        return false;
-    }
+            warning("firstName_input", "Presiahli ste maximálnu dĺžku mena");
+           return false;
+        }
 
         if(lastName.length >  50) {
-        let warning = document.getElementById("lastName_input");
-        warning.hidden = false;
-        warning.style = "color:red";
-        warning.innerText = "Presiahli ste maximálnu dĺžku priezviska";
-        return false;
-    }
+            warning("lastName_input","Presiahli ste maximálnu dĺžku priezviska" );
+         return false;
+        }
 
         if(phoneNum.length != "" && phoneNum.length !=  13) {
             warning("phone_input","Zadali ste nespravnu dĺžku telefónneho čísla" );
             return false;
-    }
+        }
         return true;
     }
 
     function validateEmail(email) {
         let format = /^\S+@\S+.\S+$/;
-            if (format.test(email)==true) {
+            if (format.test(email)===true) {
             return true;
         } else {
-            warning("email_input", "Zadali ste email v nespravnom formate")
+            warning("email_input", "Zadali ste email v nespravnom formate");
             return false;
         }
     }

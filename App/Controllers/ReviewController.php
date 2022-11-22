@@ -6,6 +6,7 @@ use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Post;
 use App\Models\Review;
+use App\Models\User;
 
 class ReviewController extends AControllerBase
 {
@@ -52,13 +53,15 @@ class ReviewController extends AControllerBase
      */
     public function store()
     {
+        $data = $this->request()->getPost();
+
         $id = $this->request()->getValue('id');
         $review = ($id ? Review::getOne($id) : new Review());
-
-        $review->setMeno($this->request()->getValue('meno'));
-        $review->setText($this->request()->getValue('text'));
-        $review->save();
-
+       if(isset($data['meno'])&& isset($data['text'])) {
+           $review->setMeno($this->request()->getValue('meno'));
+           $review->setText($this->request()->getValue('text'));
+           $review->save();
+       }
         return $this->redirect("?c=review");
 
     }
