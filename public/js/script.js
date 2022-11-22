@@ -62,7 +62,6 @@
     }
 
 
-
         function validateRegistration() {
         let firstName = document.forms["registrationForm"]["firstName"].value;
         let lastName = document.forms["registrationForm"]["lastName"].value;
@@ -120,7 +119,9 @@
             warning("lastName_input","Presiahli ste maximálnu dĺžku priezviska" );
          return false;
         }
-
+        if(phoneNum.length != "" && validatePhoneNumber(phoneNum) === false) {
+            return false;
+        }
         if(phoneNum.length != "" && phoneNum.length !=  13) {
             warning("phone_input","Zadali ste nespravnu dĺžku telefónneho čísla" );
             return false;
@@ -134,6 +135,20 @@
             return true;
         } else {
             warning("email_input", "Zadali ste email v nespravnom formate");
+            return false;
+        }
+    }
+
+    function validatePhoneNumber(phonenum)
+    {
+        let format = /^\+421[0-9]{9}$/;
+        if(format.test(phonenum) === true)
+        {
+            return true;
+        }
+        else
+        {
+            warning("phone_input", "Zadali ste telefonne cislo v nespravnom formate");
             return false;
         }
     }
