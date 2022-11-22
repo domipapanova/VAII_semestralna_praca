@@ -7,7 +7,7 @@ use App\Models\Product;
 /** @var Review $product */
 $product = $data['product'];
 ?>
-<form name="newProduct" method="get" action="?c=gallery&a=store" onsubmit="return validateProduct()">
+<form name="newProduct" method="post" action="?c=gallery&a=store" onsubmit="return validateProduct()">
     <input type="hidden" value="<?= $product->getIdProduct() ?>" name="id" >
 
     <div class="form-group">

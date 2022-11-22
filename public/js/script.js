@@ -1,12 +1,12 @@
 
     function validateReview() {
+        let result = true;
         let name = document.forms["review"]["meno"].value;
         let text = document.forms["review"]["text"].value;
         if(name == "" ) {
             warning("title_input","Povinny údaj");
             return false;
         }
-
 
         if(text == "" ) {
             warning("review_input","Povinny údaj");
@@ -23,7 +23,7 @@
             return false;
         }
 
-        return true;
+        return result;
     }
 
     function validateProduct() {
@@ -158,7 +158,6 @@
                 } else {
                     p.style.display = "none"
                     button.innerText= "Viac info"
-
                 }
             }
         }

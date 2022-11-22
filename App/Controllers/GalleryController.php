@@ -53,19 +53,22 @@ class GalleryController extends AControllerBase
      */
     public function store()
     {
+        $data = $this->request()->getPost();
+
         $id = $this->request()->getValue('id');
         $product = ($id ? Product::getOne($id) : new Product());
+        if(isset($data['nazov']) && isset($data['cena'])) {
+            $product->setProductName($this->request()->getValue('nazov'));
+            $product->setPrice($this->request()->getValue('cena'));
+            /*$product->setCategory($this->request()->getValue('kategoria'));*/
+            $product->setDescription($this->request()->getValue('popis'));
+            if ($this->request()->getValue('obrazok') != null) {
+                $product->setPictureName($this->request()->getValue('obrazok'));
+            }
 
-        $product->setProductName($this->request()->getValue('nazov'));
-        $product->setPrice($this->request()->getValue('cena'));
-        /*$product->setCategory($this->request()->getValue('kategoria'));*/
-        $product->setDescription($this->request()->getValue('popis'));
-        if($this->request()->getValue('obrazok') != null) {
-            $product->setPictureName($this->request()->getValue('obrazok'));
+            $product->save();
+
         }
-
-        $product->save();
-
         return $this->redirect("?c=gallery");
 
     }

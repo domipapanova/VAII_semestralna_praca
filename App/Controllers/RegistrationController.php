@@ -39,21 +39,19 @@ class RegistrationController extends AControllerBase
             return $this->redirect("?c=registration&a=error");
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $this->redirect("?c=registration&a=error");
-
-
         } else {
-                $user = new User();
+            $user = new User();
+            $user->setFirstName($firstName);
+            $user->setLastName($lastName);
+            $user->setEmail($email);
+            $user->setLogin($login);
+            $user->setHash($hash);
 
-                $user->setFirstName($firstName);
-                $user->setLastName($lastName);
-                $user->setEmail($email);
-                $user->setLogin($login);
-                $user->setHash($hash);
             if (isset($data['phoneNumber']) && preg_match("/^[+]421[0-9]{9}$",$phone)) {
                 $user->setPhoneNumber($phone);
             }
-                $user->save();
-            }
+            $user->save();
+        }
 
         return $this->redirect("?c=registration&a=reg");
 
