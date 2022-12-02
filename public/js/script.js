@@ -73,25 +73,36 @@
         if((login === "" && email === "") && hash === "") {
             warning("main_output", "Prosím zadajte povinne udaje označené *");
             return false;
+        } else {
+            hideWarning("main_output");
         }
 
         if(login === "" ) {
             warning("login_input","Prosím zadajte váš login")
             return false;
+        } else {
+            hideWarning("login_input");
         }
 
         if(email === "" ) {
             warning("email_input","Prosím zadajte váš email");
             return false;
+        } else {
+            hideWarning("email_input");
         }
 
         if (validateEmail(email) === false) {
             return false;
+        } else {
+            hideWarning("email_input");
         }
+
 
         if(hash === "" ) {
             warning("pswd_input","Prosím zadajte váše heslo" );
             return false;
+        } else {
+            hideWarning("pswd_input");
         }
 
         if(login.length >  30) {
@@ -160,23 +171,13 @@
             warning.innerText = text;
     }
 
-
-    window.onload = function () {
-        let buttons = document.querySelectorAll(".btn-outline-success");
-        for (let i = 0; i < buttons.length; i++) {
-            let button = buttons[i];
-            button.onclick = function () {
-                let p = button.nextElementSibling;
-                if (p.style.display == "none") {
-                    p.style.display = "inline";
-                    button.innerText= "Zavriet";
-                } else {
-                    p.style.display = "none"
-                    button.innerText= "Viac info"
-                }
-            }
-        }
+    function hideWarning(input) {
+        let warning = document.getElementById(input);
+        warning.hidden = true;
     }
+
+
+
 
 
 

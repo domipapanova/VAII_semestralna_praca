@@ -1,6 +1,8 @@
 <?php /* @var \App\Models\Product[] $data */
 /** @var \App\Core\IAuthenticator $auth */
 ?>
+<script src="public/js/gallery_script.js"></script>
+<link rel="stylesheet" href="public/css/galeryStyl.css">
 
 
 <?php if ($auth->isLogged()) { ?>
@@ -42,8 +44,9 @@
                             </div>
                             <?php if ($auth->isLogged()) { ?>
 
-                                <a href="?c=gallery&a=edit&id_product=<?= $row->getIdProduct() ?>"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>
-                                <a href="?c=gallery&a=delete&id_product=<?= $row->getIdProduct() ?>"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>
+                                <a href="?c=gallery&a=edit&id_product=<?= $row->getIdProduct() ?>"> <button type="submit" class="btn btn-outline-primary"  >Upraviť</button> </a>
+
+                                    <button  class="btn btn-outline-danger"  onclick="document.getElementById('delete-confrim').style.display='block'">Odstraniť</button>
                             <?php } ?>
                         </div>
                     </div>
@@ -52,3 +55,18 @@
             </div>
         </div>
     </div>
+
+<div id="delete-confrim" class="modal">
+    <form class="modal-content"  method="post" action="?c=gallery&a=delete&id_product=<?= $row->getIdProduct() ?>">
+        <div class="container">
+            <h1>Vymazať produkt</h1>
+            <p>Vážne si prajete odstrániť tento proukt?</p>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('delete-confrim').style.display='none'"  class="btn btn-secondary">Zrušiť</button>
+                <button type="submit"  onclick="document.getElementById('delete-confrim').style.display='none'" class="btn btn-danger"">Odstraniť</button>
+            </div>
+        </div>
+    </form>
+</div>
+
