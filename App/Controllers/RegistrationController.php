@@ -27,12 +27,12 @@ class RegistrationController extends AControllerBase
 
     public function store() : Response
     {
+
         $data = $this->request()->getPost();
         $firstName = $data['firstName'];
         $lastName = $data['lastName'];
         $email = $data['email'];
         $login = $data['login'];
-        $hash = $data['password'];
         $phone = $data['phoneNumber'];
 
         if( (isset($data["email"])  == false && isset($data["password"]) == false ) && (isset($data["login"]) == false)) {
@@ -45,11 +45,14 @@ class RegistrationController extends AControllerBase
             $user->setLastName($lastName);
             $user->setEmail($email);
             $user->setLogin($login);
-            $user->setHash($hash);
+            $password = password_hash($data["password"], PASSWORD_BCRYPT);
+            $user->setPassword($password);
 
-            if (isset($data['phoneNumber']) && preg_match("/^[+]421[0-9]{9}$",$phone)) {
+           // if (isset($data['phoneNumber']) && preg_match("/^[+]421[0-9]{9}$",$phone)) {
                 $user->setPhoneNumber($phone);
-            }
+           // } else {
+             //   $user->setPhoneNumber('');
+            //}
             $user->save();
         }
 
@@ -57,5 +60,9 @@ class RegistrationController extends AControllerBase
 
     }
 
+    public function authorize(string $action)
+    {
+        return true; //
+    }
 
 }
