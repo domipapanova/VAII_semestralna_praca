@@ -2,6 +2,9 @@
 /** @var \App\Core\IAuthenticator $auth */
 
 ?>
+
+<link rel="stylesheet" href="public/css/reviewStyle">
+
     <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
         <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Ešte si nás neohodnotil? </h4>
          <a href="?c=review&a=create"><button type="button" class="btn btn-outline-success">Ohodnoť nás</button> </a>

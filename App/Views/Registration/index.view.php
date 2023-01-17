@@ -1,6 +1,7 @@
 <?php
 /** @var Array $data */
 ?>
+<script src="public/js/registration_script.js"></script>
 
 <section class="vh-100" style="background-color: #BFD9C3;">
     <div class="container h-100">
@@ -59,7 +60,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="pswd_input" hidden></p>
-                                            <input type="password" name="password" id="form3Example6c" class="form-control" />
+                                            <input type="password" name="password" id="form3Example6c" class="form-control" onkeyup="validatePassword(this.value)"/>
                                             <label class="form-label" for="form3Example4c">* Heslo</label>
                                         </div>
                                     </div>

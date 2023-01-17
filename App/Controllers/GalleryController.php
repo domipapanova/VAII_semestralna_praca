@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
 use App\Models\Product;
 use App\Models\Review;
@@ -71,5 +72,12 @@ class GalleryController extends AControllerBase
         }
         return $this->redirect("?c=gallery");
 
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function getProducts() : JsonResponse {
+        return $this->json(Product::getAll());
     }
 }

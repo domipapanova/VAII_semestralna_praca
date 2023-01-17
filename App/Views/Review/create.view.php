@@ -6,6 +6,8 @@ use App\Models\Review;
 /** @var Review $review */
 $review = $data['review'];
 ?>
+<link rel="stylesheet" href="public/css/reviewStyle.css">
+
 
 <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
     <h5 class="mb-4">Pridaj hodnotenie našej predajne </h5>

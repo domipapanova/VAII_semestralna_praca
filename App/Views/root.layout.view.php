@@ -44,6 +44,7 @@
                 <a href="?c=auth&a=login">Prihlásenie</a>
                 <?php } ?>
 
+
             </div>
 
             <!--HAMBURGER , onclick - javascript -->

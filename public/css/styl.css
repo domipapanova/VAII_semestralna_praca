@@ -63,7 +63,7 @@ ul{
 
 #myLinks {
     display: flex;
-    margin-left: 22%;
+    margin-left: 17%;
 }
 
 #top a {
@@ -86,46 +86,7 @@ ul{
     width: 10%;
 }
 
-#section-home {
-    background: url("../images/main_pic.jpg") center 	 no-repeat;
-    height: 362px;
-    background-size: cover;
-}
-
-.post-title	{
-    margin-top: 5%;
-    color: white;
-    font-size: 2em;
-    background: coral;
-    padding: 20px 45px;
-    border-radius: 10px;
-    display: inline-block;
-    text-transform: uppercase;
-}
-
-
-
-
-.quote{
-    margin-top: 30%;
-}
-
-blockquote {
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
-    font-size: 4em;
-    text-align: center;
-}
-blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    vertical-align: -0.4em;
-    margin: 0;
-}
-
+/*footer of the page*/
 
 #section-contact{
     background: #000;
@@ -585,7 +546,7 @@ h1:hover {
 }
 
 
-/* reviews*/
+/** reviews*
 
 .align-center {
     text-align: center;
@@ -648,12 +609,11 @@ img {
 .font-cond-b {
     font-weight: 70
 }
-
-button .buttonInfo {
-    cursor: pointer;
-}
+*/
 
 .card-infoProduct {
     display: none;
 }
-
+button .buttonInfo {
+    cursor: pointer;
+}

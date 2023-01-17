@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="public/css/blogStyle.css">
+
+
 <section id="blog" >
     <div class="content">
         <h1>Najnovšie</h1>
