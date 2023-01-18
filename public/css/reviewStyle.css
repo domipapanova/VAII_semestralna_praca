@@ -1,5 +1,26 @@
 /* reviews*/
 
+/*adding review*/
+.review-class {
+    width: 100%;
+    margin-bottom: 2%;
+}
+.place-for-review {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.place-for-review label {
+    float: left;
+    margin: 1px;
+}
+
+.review-class button {
+    margin-top: 2%;
+}
+
+
+
 .align-center {
     text-align: center;
 }

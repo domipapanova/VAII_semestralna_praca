@@ -22,7 +22,7 @@
 
 // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     }
@@ -32,7 +32,7 @@
 
          let response;
          //getting data from database
-         response = await fetch("?c=gallery&a=getProducts");
+         response = await fetch("?c=gallery&a=newReview");
 
          const products = await response.json();
          //filtration - if data contains "string"
@@ -49,7 +49,7 @@
                       <img src="./public/images/${x.picture_name}" alt="product image">
 
                       <div class="card-body">
-                          <h5 clas="card-title">${x.product_name}</h5>
+                          <h5>${x.product_name}</h5>
                             <button type="button" id="buttonInfo" class="btn btn-outline-success" onclick="buttonClick()">Viac info</button>
                               <p class="card-infoProduct" id="infoProduct" >${x.description}</p>
                           <div class=" d-flex justify-coclassName-between align-items-center">

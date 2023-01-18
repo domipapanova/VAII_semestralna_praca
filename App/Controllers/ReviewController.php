@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
+use App\Models\Product;
 use App\Models\Review;
 
 class ReviewController extends AControllerBase
@@ -62,5 +64,25 @@ class ReviewController extends AControllerBase
        }
         return $this->redirect("?c=review");
 
+    }
+
+    public function newReview() {
+        $data = $this->request()->getPost();
+
+        $id = $this->request()->getValue('id');
+        $review = ($id ? Review::getOne($id) : new Review());
+        if(isset($data['meno'])&& isset($data['text'])) {
+            $review->setMeno($this->request()->getValue('meno'));
+            $review->setText($this->request()->getValue('text'));
+            $review->save();
+        }
+        return $this->getReviews();
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function getReviews() : JsonResponse {
+        return $this->json(Review::getAll());
     }
 }

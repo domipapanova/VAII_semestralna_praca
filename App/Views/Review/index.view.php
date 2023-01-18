@@ -3,15 +3,33 @@
 
 ?>
 
-<link rel="stylesheet" href="public/css/reviewStyle">
+<link rel="stylesheet" href="public/css/reviewStyle.css">
+<script src="public/js/review_script.js"></script>
 
     <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
         <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Ešte si nás neohodnotil? </h4>
-         <a href="?c=review&a=create"><button type="button" class="btn btn-outline-success">Ohodnoť nás</button> </a>
+             <button id="reviewButton" type="button" class="btn btn-outline-success" onclick="addReview()">Ohodnoť nás</button>
+        <div class="review-class">
+        <div class="place-for-review" id="place-for-review" hidden>
+            <form name="review" method="post" action="?c=review&a=store">
+                <div class="form-group">
+                    <label id="name-title-review" for="exampleFormControlInput1">Meno</label>
+                    <input type="text" id="exampleFormControlInput1" class="form-control" name="meno" placeholder="Vaše meno" required>
+                </div>
+
+                <div class="form-group">
+                    <label id="review-title" for="exampleFormControlTextarea1">Recenzia</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" placeholder="Napíšte nám čo máte na mysli ..." required></textarea>
+                </div>
+                <button type="submit" id="reviewButton" class="btn btn-outline-success">Pridaj recenziu</button>
+            </form>
+
+        </div>
+        </div>
         <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" contenteditable="false">Prečítaj si hodnotenia naších zákazníkov</h1>
     </div>
-    <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm">
-        <?php foreach ($data as $row) { ?>
+    <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm" id="body-reviews">
+        <?php foreach (array_reverse($data) as $row) { ?>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-10">
                     <div class="card">

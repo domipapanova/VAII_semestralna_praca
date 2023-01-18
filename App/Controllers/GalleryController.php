@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
+use App\Models\Pot;
 use App\Models\Product;
 use App\Models\Review;
 
@@ -19,7 +20,10 @@ class GalleryController extends AControllerBase
     public function index(): Response
     {
         $products = Product::getAll();
-        return  $this->html($products);
+        $pots = Pot::getAll();
+        return  $this->html([
+            'plants' => $products,
+            'pots' => $pots]);
     }
 
     public function create()

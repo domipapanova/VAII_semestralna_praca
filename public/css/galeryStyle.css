@@ -19,6 +19,19 @@ h1{
   margin-left: 30%;
 }
 
+.infoProducts {
+    width: 100%;
+}
+.infoProducts p {
+    color: black;
+    margin-left: 4%;
+
+}
+
+.pot-info li {
+    list-style-type: circle;
+}
+
 
 /* galeria */
 
@@ -98,6 +111,17 @@ button .buttonInfo {
 .col:hover img{
     opacity: 0.3;
 }
+
+/* filter */
+/* Style the input field */
+#myInput {
+    padding: 20px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+}
+
 
 
 
