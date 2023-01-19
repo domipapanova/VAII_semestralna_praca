@@ -9,6 +9,7 @@ class Review extends Model
     protected $id_review;
     protected $text;
     protected  $meno;
+    protected $id_author;
 
     /**
      * @return mixed
@@ -16,14 +17,6 @@ class Review extends Model
     public function getIdReview()
     {
         return $this->id_review;
-    }
-
-    /**
-     * @param mixed $id_review
-     */
-    public function setIdReview($id_review): void
-    {
-        $this->id_review = $id_review;
     }
 
     /**
@@ -59,6 +52,26 @@ class Review extends Model
         $this->meno = $meno;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdAuthor()
+    {
+        return $this->id_author;
+    }
+
+    /**
+     * @param mixed $id_author
+     */
+    public function setIdAuthor($id_author): void
+    {
+        $this->id_author = $id_author;
+    }
+
+    /**
+     * @return mixed
+     */
+
 
     static public function setTableName()
     {
@@ -67,7 +80,7 @@ class Review extends Model
 
     static public function setDbColumns()
     {
-        return [ 'id_review' ,'text', 'meno'];
+        return [ 'id_review' ,'text', 'meno', 'id_author'];
     }
 
     public static function getPkColumnName(): string

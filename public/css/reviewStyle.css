@@ -1,5 +1,7 @@
 /* reviews*/
-
+h1 {
+    text-align: center;
+}
 /*adding review*/
 .review-class {
     width: 100%;

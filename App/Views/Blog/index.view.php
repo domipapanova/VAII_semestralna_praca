@@ -1,68 +1,26 @@
+<?php /* @var \App\Models\Article[] $data */
+/** @var \App\Core\IAuthenticator $auth */
+
+?>
 <link rel="stylesheet" href="public/css/blogStyle.css">
 
 
 <section id="blog" >
     <div class="content">
         <h1>Najnovšie</h1>
+        <?php foreach (array_reverse($data) as $row) { ?>
         <div class="clanok">
-            <div class="text">
-                <h2> <a href="https://zahradkar.pluska.sk/izbove-rastliny/tri-neprijemne-skodce-izbovych-kvetov-co-robit">Škodcovia: ako ich zničiť?</a></h2>
-                <p>Červce, roztoče či štítničky patria k najbežnejším a najnepríjemnejším škodcom. Dôležitá je preto pravidelná kontrola rastlín a prevencia.</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\plant-care.jpg" alt="Generic placeholder image"></p>
+            <div class="article-body">
+                <div class="text">
+                    <h2> <a href="<?=$row->getLinks() ?>"><?=$row->getTitle() ?></a></h2>
+                    <p><?=$row->getText() ?></p>
+                </div>
+                <div class="obr">
+                    <p> <img src=".\public\images\<?=$row->getPictureName() ?>" alt="Generic placeholder image"></p>
+                </div>
             </div>
         </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/izbove-rastliny/ocarujuca-paprad-splnte-tychto-5-podmienok-bude-vam-pestovani-da">Paprade: aká je správna starostlivosť ?</a></h2>
-                <p>Očarujúca papraď! Splňte týchto 5 podmienok a bude sa vám v pestovaní dariť</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\paprad.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://www.zahrada.sk/magazine/co-robi-spravny-zahradkar-v-zime/">Zima: pripravte svoju záhradu!</a></h2>
-                <p>Prečítajte si naše rady a triky, ako pripraviť svoju záhradu na náročne zimné obdobie. Všetko sa dozviete v našom članku.</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\zima.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/okrasna-zahrada/aj-vy-budete-vediet-ako-mat-krasne-ruze-nielen-zahonoch-ale-aj-nadobach-staci-kupit-julovy-casopis-zahradkar">Ruže: poradíme vám čo predĺži ich kvitnutie.</a></h2>
-                <p>Milujete ruže? Tak si prečítajte naše rady ako ich donútiť kvitnúť čo najdlhšie.</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\ruze.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/okrasna-zahrada/je-tu-vhodny-cas-vysadzanie-jarnych-cibulovin-dodrzte-tychto-6-zakladnych-pravidie">Pripravte sa na jar už teraz!</a></h2>
-                <p>Ukážeme vám krok po kroku ako vysádzať jarné cibuľoviny a tak sa pripraviť na jar</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\cibuloviny.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/balkon-a-terasa/viete-ktore-balkonovky-mozno-zazimovat-tieto-budu-krasne-aj-buducej-sezone">Viete, ktoré BALKÓNOVKY možno ZAZIMOVAŤ? </a></h2>
-                <p>Síce väčšinu balkónových rastlín je nutné pred zimou zlikvidovať, nájdete medzi nimi aj také, ktoré vás budú svojou krásou tešiť aj budúcu sezónu. Ktoré sú to a ako sa o ne teraz postarať?</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\balkon.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 
@@ -71,6 +29,7 @@
         <div class="clanok">
             <h1>O nás</h1>
 
+        </div>
             <div class="text">
                 <h2>Doprava domov</h2>
                 <h3>Samozrejme!</h3>

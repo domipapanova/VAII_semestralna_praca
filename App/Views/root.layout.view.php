@@ -15,6 +15,7 @@
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/styl.css">
+    <link rel="icon" type="image/x-icon" href=".\public\images\favicon.ico">
     <script src="public/js/script.js"></script>
     <meta name="viewport"
           content="width=device-width, initial-scale=1">

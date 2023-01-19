@@ -2,11 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Auth\DBAuthenticator;
 use App\Core\AControllerBase;
+use App\Core\IAuthenticator;
 use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\User;
 
 class ReviewController extends AControllerBase
 {
@@ -17,12 +20,14 @@ class ReviewController extends AControllerBase
      */
     public function index(): Response
     {
+        $authors = User::getAll();
         $reviews = Review::getAll();
-        return  $this->html($reviews);
+        return  $this->html(['reviews' =>$reviews, 'authors' => $authors]);
     }
 
     public function create()
     {
+
         return  $this->html([
             'review' => new Review()
         ], 'create');
@@ -57,8 +62,9 @@ class ReviewController extends AControllerBase
 
         $id = $this->request()->getValue('id');
         $review = ($id ? Review::getOne($id) : new Review());
-       if(isset($data['meno'])&& isset($data['text'])) {
-           $review->setMeno($this->request()->getValue('meno'));
+       if(isset($data['text'])) {
+          /* $review->setMeno($this->request()->getValue('meno'));*/
+           $review->setIdAuthor($this->request()->getValue('id-author'));
            $review->setText($this->request()->getValue('text'));
            $review->save();
        }
@@ -66,7 +72,7 @@ class ReviewController extends AControllerBase
 
     }
 
-    public function newReview() {
+    /*public function newReview() {
         $data = $this->request()->getPost();
 
         $id = $this->request()->getValue('id');
@@ -78,7 +84,7 @@ class ReviewController extends AControllerBase
         }
         return $this->getReviews();
     }
-
+*/
     /**
      * @throws \Exception
      */
