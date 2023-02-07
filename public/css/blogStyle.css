@@ -1,5 +1,14 @@
 /* blog */
-
+.blog-header {
+    display: block;
+    text-align: center;
+}
+.blog-header h1 {
+    /*margin-left: 33%;*/
+}
+.btn-light {
+    margin-top: 2%;
+}
 #blog{
     background-color: #aecfa7;
     color: white;
@@ -67,32 +76,11 @@ h1:hover {
     margin-bottom: 10%;
 }
 
-
-#section-about h1{
-    text-align: center;
-    font-size: 5em;
-    padding-top: 5%;
-    margin: 0;
-    margin-bottom: 5%
+#section-foundres .text {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
 }
-
-#section-about h2{
-    font-size: 4em;
-    margin: 0;
-}
-
-#section-about h3{
-    font-size: 1.6em;
-    margin: 0;
-}
-
-#section-about p{
-    text-align: justify;
-    padding-top: 2%;
-    font-size: 2em;
-    margin-top: 0;
-}
-
 #section-foundres h1{
     font-size: 4em;
 }
@@ -102,7 +90,6 @@ h1:hover {
     text-align: center;
     padding-top: 2%;
     margin-top: 2%;
-    padding-bottom: 5%;
 }
 
 #section-foundres .text{
@@ -147,44 +134,10 @@ h1:hover {
     color: white;
 }
 
-#section-home {
-    background: url("../images/main_pic.jpg") center 	 no-repeat;
-    height: 362px;
-    background-size: cover;
-}
-
-.post-title	{
-    margin-top: 5%;
-    color: white;
-    font-size: 2em;
-    background: coral;
-    padding: 20px 45px;
-    border-radius: 10px;
-    display: inline-block;
-    text-transform: uppercase;
-}
 
 
 
 
-.quote{
-    margin-top: 30%;
-}
 
-blockquote {
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
-    font-size: 4em;
-    text-align: center;
-}
-blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    vertical-align: -0.4em;
-    margin: 0;
-}
 
 /*bootstrap-----------------------------------*/

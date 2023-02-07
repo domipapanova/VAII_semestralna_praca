@@ -31,7 +31,7 @@
             <div id="myLinks" class="navbar-nav-items">
                 <a href="?c=home">Domov</a>
                 <a href="?c=gallery">Rastliny</a>
-                <a href="?c=gallery">Kvetinace</a>
+                <a href="?c=pot">Kvetinace</a>
                 <a href="?c=blog">FAQ</a>
                 <a href="#section-contact">Kontakt</a>
                 <a href="?c=review">Recenzie</a>

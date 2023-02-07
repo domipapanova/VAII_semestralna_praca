@@ -1,26 +1,17 @@
 <?php /* @var \App\Models\Review[] $data */
 /** @var \App\Auth\DBAuthenticator $auth */
-
 ?>
-
 <link rel="stylesheet" href="public/css/reviewStyle.css">
 <script src="public/js/review_script.js"></script>
+
 <?php if ($auth->isLogged()) { ?>
-
-
     <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
         <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Ešte si nás neohodnotil? </h4>
              <button id="reviewButton" type="button" class="btn btn-outline-success" onclick="addReview()">Ohodnoť nás</button>
         <div class="review-class">
         <div class="place-for-review" id="place-for-review" hidden>
-            <form name="review" method="post" action="?c=review&a=store">
+            <form  name="reviewForm" id="reviewForm">
                 <input type="hidden"  name="id-author" value="<?=$auth->getLoggedUserId()?>">
-
-                <!--<div class="form-group">
-                    <label id="name-title-review" for="exampleFormControlInput1">Meno</label>
-                    <input type="text" id="exampleFormControlInput1" class="form-control" name="meno" placeholder="Vaše meno" required>
-                </div>-->
-
                 <div class="form-group">
                     <label id="review-title" for="exampleFormControlTextarea1">Recenzia</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" placeholder="Napíšte nám čo máte na mysli ..." required></textarea>
@@ -48,7 +39,7 @@
                                     <p class="text-muted fw-light mb-4">
                                       <?=$row->getText()?>
                                     </p>
-                                    <p class="fw-bold lead mb-2"><strong><?= \App\Models\User::getOne($row->getIdAuthor())->getFirstName() . " " .  \App\Models\User::getOne($row->getIdAuthor())->getLastName()?></strong></p>
+                                    <p class="fw-bold lead mb-2"><strong><?= $row->getName() ?></strong></p>
                                 </div>
                             </div>
                             <?php if ($auth->isLogged() && $row->getIdAuthor() == $auth->getLoggedUserId()) { ?>

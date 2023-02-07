@@ -4,10 +4,13 @@
 ?>
 <link rel="stylesheet" href="public/css/blogStyle.css">
 
-
 <section id="blog" >
     <div class="content">
-        <h1>Najnovšie</h1>
+        <div class="blog-header">
+            <h1>Najnovšie</h1>
+            <button type="button" class="btn btn-light">Nový príspevok</button>
+        </div>
+
         <?php foreach (array_reverse($data) as $row) { ?>
         <div class="clanok">
             <div class="article-body">
@@ -24,40 +27,42 @@
     </div>
 </section>
 
-<section id="section-about" >
-    <div class="content">
-        <div class="clanok">
-            <h1>O nás</h1>
+<div class="container px-4 py-5" id="hanging-icons">
+    <h1 class="pb-2 border-bottom">Časté otázky</h1>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+            </div>
+            <div>
+                <h3 class="fs-2">Doprava</h3>
+                <p>Samozrejme! Zasielky posielame pomocou Slovenskej Pošty alebo Zasielkovne.</p>
 
+            </div>
         </div>
-            <div class="text">
-                <h2>Doprava domov</h2>
-                <h3>Samozrejme!</h3>
-                <p> Zasielky posielame pomocou Slovenskej Posty alebo Zasielkovne.</p>
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
             </div>
-
-            <div class="text">
-                <h2>Je vhodne posielat rastliny postou ?</h2>
-                <h3>Bez obav</h3>
-                <p> Rastlinky setrne zabalime a pribalime vyhrevne teleso.</p>
+            <div>
+                <h3 class="fs-2">Je vhodne posielat rastliny postou ?</h3>
+                <p>Bez obáv! Rastlinky šetrne zabalíme a pribalíme vyhrevné teleso.</p>
             </div>
-
-            <div class="text">
-                <h2>Prijmate reklamacie?</h2>
-                <h3>Bez problemov</h3>
-                <p>Zasielku mozte reklamovat do 2 tyzdnov</p>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
             </div>
+            <div>
+                <h3 class="fs-2"> Príjmate reklámacie?</h3>
+                <p>Bez problémov. Zásielku môžte reklamovať do 2 tyždňov</p>
 
+            </div>
         </div>
     </div>
-</section>
-
+</div>
 
 <section id="section-foundres">
-    <div class="content ">
+    <div class="content">
         <h1>Zakladatelia našej predajne</h1>
         <div class="text">
-
             <div class="box">
                 <p><img src=".\public\images\f1.jpg" alt="Instant Image"></p>
                 <div class="position-text">

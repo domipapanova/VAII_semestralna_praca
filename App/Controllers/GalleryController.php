@@ -20,10 +20,7 @@ class GalleryController extends AControllerBase
     public function index(): Response
     {
         $products = Product::getAll();
-        $pots = Pot::getAll();
-        return  $this->html([
-            'plants' => $products,
-            'pots' => $pots]);
+        return  $this->html($products);
     }
 
     public function create()

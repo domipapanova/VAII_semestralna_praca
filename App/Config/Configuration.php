@@ -27,4 +27,6 @@ class Configuration
     public const DEBUG_QUERY = false;
 
     public const AUTH_CLASS = DBAuthenticator::class;
+
+    public const ADMIN = 1;
 }

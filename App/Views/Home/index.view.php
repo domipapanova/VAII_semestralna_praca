@@ -8,10 +8,11 @@
                 PlantPlace
             </h1>
         </header>
-        <div class="quote">
-            <blockquote>Široká ponuka rastlín a doplnkov</blockquote>
+        <div class="quote-background">
+            <div class="quote">
+                <blockquote>Široká ponuka rastlín a doplnkov</blockquote>
+            </div>
         </div>
-
     </div>
 </section>
 

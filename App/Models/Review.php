@@ -8,7 +8,6 @@ class Review extends Model
 {
     protected $id_review;
     protected $text;
-    protected  $meno;
     protected $id_author;
 
     /**
@@ -27,6 +26,11 @@ class Review extends Model
         return $this->text;
     }
 
+    public function getName()
+    {
+        return User::getOne($this->id_author)->getFirstName() . ' ' . User::getOne($this->id_author)->getLastName();
+    }
+
     /**
      * @param mixed $text
      */
@@ -36,21 +40,7 @@ class Review extends Model
     }
 
 
-    /**
-     * @return mixed
-     */
-    public function getMeno()
-    {
-        return $this->meno;
-    }
 
-    /**
-     * @param mixed $meno
-     */
-    public function setMeno($meno): void
-    {
-        $this->meno = $meno;
-    }
 
     /**
      * @return mixed

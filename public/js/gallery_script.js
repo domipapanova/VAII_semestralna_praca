@@ -32,7 +32,7 @@
 
          let response;
          //getting data from database
-         response = await fetch("?c=gallery&a=newReview");
+         response = await fetch("?c=gallery&a=getProducts");
 
          const products = await response.json();
          //filtration - if data contains "string"

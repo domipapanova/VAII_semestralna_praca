@@ -19,6 +19,7 @@ body {
     margin-right: 10%;
 }
 
+
 #top{
     overflow: hidden;
     top: 0;
@@ -91,7 +92,7 @@ ul{
 #section-contact{
     background: #000;
     color: #fff;
-    margin-top: 30%;
+    margin-top: 10%;
 }
 
 #section-contact p {

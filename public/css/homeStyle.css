@@ -17,9 +17,13 @@
 
 
 
+.quote-background {
+    width: 100%;
+}
+
 
 .quote{
-    margin-top: 30%;
+    margin-top: 20%;
 }
 
 blockquote {
