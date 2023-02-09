@@ -31,7 +31,7 @@ class PotController extends AControllerBase
      */
     public function delete()
     {
-        $pot = Pot::getOne($this->request()->getValue('id_pot'));
+        $pot = Pot::getOne($id = $_GET['id']);
         $pot->delete();
 
         return $this->redirect("?c=pot");
@@ -54,20 +54,42 @@ class PotController extends AControllerBase
         $data = $this->request()->getPost();
         $id = $this->request()->getValue('id');
         $pot = ($id ? Pot::getOne($id) : new Pot());
-        if(isset($data['nazov']) && isset($data['cena'])) {
-            $pot->setName($this->request()->getValue('nazov'));
-            $pot->setPrice($this->request()->getValue('cena'));
-            $pot->setDescription($this->request()->getValue('popis'));
-            $pot->setColor($this->request()->getValue('farba'));
-            $pot->setMaterial($this->request()->getValue('material'));
-            $pot->setSize($this->request()->getValue('velkost'));
 
-            if ($this->request()->getValue('obrazok') != null) {
-                $pot->setPictureName($this->request()->getValue('obrazok'));
+        if (isset($data['name']) && isset($data['price'])) {
+            $pot->setName($this->request()->getValue('name'));
+            $pot->setPrice($this->request()->getValue('price'));
+            $pot->setDescription($this->request()->getValue('describtion'));
+            $pot->setColor($this->request()->getValue('color'));
+            $pot->setMaterial($this->request()->getValue('material'));
+
+            if($this->request()->getValue('size') != null){
+                $pot->setSize($this->request()->getValue('size'));
             }
 
-            $pot->save();
+            if(isset($_FILES['picture'])) {
+                $errors = [];
+                $file_name = $_FILES['picture']['name'];
+                $file_size = $_FILES['picture']['size'];
+                $file_tmp = $_FILES['picture']['tmp_name'];
+                $file_type = $_FILES['picture']['type'];
+                $file_info = pathinfo($_FILES['picture']['name']);
+                $file_ext = strtolower($file_info['extension']);
 
+                $extensions = ["jpeg", "jpg", "png", "webp"];
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "Nesprávny formát, povolené sú JPEG alebo PNG";
+                }
+
+                if ($file_size > 2097152) {
+                    $errors[] = 'Veľkosť obrázka musí byť menšia než 2 MB';
+                }
+
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "./public/images/" . $file_name);
+                    $pot->setPictureName($file_name);
+                }
+            }
+            $pot->save();
         }
         return $this->redirect("?c=pot");
     }

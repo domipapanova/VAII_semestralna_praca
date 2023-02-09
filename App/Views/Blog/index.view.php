@@ -3,12 +3,20 @@
 
 ?>
 <link rel="stylesheet" href="public/css/blogStyle.css">
+<script src="public/js/blog_script.js"></script>
+
 
 <section id="blog" >
     <div class="content">
+
         <div class="blog-header">
             <h1>Najnovšie</h1>
-            <button type="button" class="btn btn-light">Nový príspevok</button>
+            <?php if ($auth->isLogged() && $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
+            <a class="createArticle" href="?c=blog&a=create">
+
+            <button type="button" class="btn btn-success">Nový príspevok</button>
+            <?php } ?>
+            <a/>
         </div>
 
         <?php foreach (array_reverse($data) as $row) { ?>
@@ -22,10 +30,55 @@
                     <p> <img src=".\public\images\<?=$row->getPictureName() ?>" alt="Generic placeholder image"></p>
                 </div>
             </div>
+
+            <?php if ($auth->isLogged()&& $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
+            <div class="edit-buttons">
+                <a href="?c=blog&a=edit&id_article=<?= $row->getIdArticle() ?>">
+                    <button type="submit" class="btn btn-primary" >Upraviť</button>
+                </a>
+               <button  class="btn btn-danger"  onclick="deleteConfrimation(<?=$row->getIdArticle()?>)" >Odstraniť</button>
+            </div>
+            <?php } ?>
         </div>
         <?php } ?>
     </div>
 </section>
+
+<div id="delete-confrim" class="modal">
+    <form class="modal-content"  method="post" >
+        <div class="container">
+            <h1>Vymazať článok</h1>
+            <p>Vážne si prajete odstrániť tento článok?</p>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('delete-confrim').style.display='none'"  class="btn btn-secondary">Zrušiť</button>
+                <button type="submit"  onclick="document.getElementById('delete-confrim').style.display='none'" class="btn btn-danger">Odstraniť</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Naozaj chceš vymazať tento príspevok?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zrušiť</button>
+                <button type="button" class="btn btn-danger" id="deleteButton">Vymazať</button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
 
 <div class="container px-4 py-5" id="hanging-icons">
     <h1 class="pb-2 border-bottom">Časté otázky</h1>

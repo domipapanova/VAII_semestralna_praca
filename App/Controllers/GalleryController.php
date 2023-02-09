@@ -35,7 +35,7 @@ class GalleryController extends AControllerBase
      */
     public function delete()
     {
-        $product = Product::getOne($this->request()->getValue('id_product'));
+        $product = Product::getOne($id = $_GET['id']);
         $product->delete();
 
         return $this->redirect("?c=gallery");
@@ -56,20 +56,40 @@ class GalleryController extends AControllerBase
     public function store()
     {
         $data = $this->request()->getPost();
-
         $id = $this->request()->getValue('id');
         $product = ($id ? Product::getOne($id) : new Product());
+
         if(isset($data['nazov']) && isset($data['cena'])) {
-            $product->setProductName($this->request()->getValue('nazov'));
-            $product->setPrice($this->request()->getValue('cena'));
-            /*$product->setCategory($this->request()->getValue('kategoria'));*/
-            $product->setDescription($this->request()->getValue('popis'));
-            if ($this->request()->getValue('obrazok') != null) {
-                $product->setPictureName($this->request()->getValue('obrazok'));
+
+
+                $product->setProductName($this->request()->getValue('nazov'));
+                $product->setPrice($this->request()->getValue('cena'));
+                $product->setDescription($this->request()->getValue('popis'));
+            if (isset($_FILES['picture'])) {
+                $errors = [];
+                $file_name = $_FILES['picture']['name'];
+                $file_size = $_FILES['picture']['size'];
+                $file_tmp = $_FILES['picture']['tmp_name'];
+                $file_type = $_FILES['picture']['type'];
+                $file_info = pathinfo($_FILES['picture']['name']);
+                $file_ext = strtolower($file_info['extension']);
+
+                $extensions = ["jpeg", "jpg", "png", "webp"];
+                if (in_array($file_ext, $extensions) === false) {
+                    $errors[] = "Nesprávny formát, povolené sú JPEG alebo PNG";
+                }
+
+                if ($file_size > 2097152) {
+                    $errors[] = 'Veľkosť obrázka musí byť menšia než 2 MB';
+                }
+
+                if (empty($errors)) {
+                    move_uploaded_file($file_tmp, "./public/images/" . $file_name);
+                    $product->setPictureName($file_name);
+                }
+
             }
-
             $product->save();
-
         }
         return $this->redirect("?c=gallery");
 

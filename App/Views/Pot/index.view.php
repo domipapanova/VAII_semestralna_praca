@@ -1,7 +1,7 @@
 <?php /* @var \App\Models\Pot[] $data */
 /** @var \App\Core\IAuthenticator $auth */
 ?>
-<script src="public/js/gallery_script.js"></script>
+<script src="public/js/pot_script.js"></script>
 <link rel="stylesheet" href="public/css/galeryStyle.css">
 
 <div class="gallery-top"  id="pots" >
@@ -45,7 +45,7 @@
             <a href="?c=pot&a=edit&id_pot=<?= $pot->getIdPot() ?>">
                 <button type="submit" class="btn btn-outline-primary"  >Upraviť</button>
             </a>
-            <button  class="btn btn-outline-danger"  onclick="document.getElementById('delete-confrim').style.display='block'">Odstraniť</button>
+            <button  class="btn btn-outline-danger"  onclick="deleteConfrimation(<?=$pot->getIdPot()?>)" >Odstraniť</button>
         <?php } ?>
     </div>
     </div>
@@ -54,10 +54,10 @@
 <?php } ?>
 
             <div id="delete-confrim" class="modal">
-                <form class="modal-content"  method="post" action="?c=pot&a=delete&id_pot=<?= $pot->getIdPot() ?>">
+                <form class="modal-content"  method="post" >
                     <div class="container">
                         <h1>Vymazať produkt</h1>
-                        <p>Vážne si prajete odstrániť tento proukt?</p>
+                        <p>Vážne si prajete odstrániť tento produkt?</p>
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('delete-confrim').style.display='none'"  class="btn btn-secondary">Zrušiť</button>

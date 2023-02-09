@@ -52,7 +52,7 @@ class Pot extends Model
      */
     public function setDescription($description): void
     {
-        $this->description = $description;
+        $this->describtion = $description;
     }
 
     /**

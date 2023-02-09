@@ -1,8 +1,27 @@
 /* blog */
+.modal-content  {
+    width: 80%;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.article-form {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.edit-buttons {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
 .blog-header {
     display: block;
     text-align: center;
 }
+
 .blog-header h1 {
     /*margin-left: 33%;*/
 }
@@ -63,7 +82,7 @@
     color: white;
     text-decoration: none;
 }
-h1:hover {
+.blog-header h1:hover {
     color: mediumseagreen;
 }
 
@@ -134,10 +153,26 @@ h1:hover {
     color: white;
 }
 
-
-
-
-
-
-
 /*bootstrap-----------------------------------*/
+/*delete window*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: silver;
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
