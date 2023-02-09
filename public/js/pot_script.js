@@ -16,3 +16,20 @@ function deleteConfrimation(product) {
         }
     }
 }
+//viac info
+window.onload = function () {
+    let buttons = document.querySelectorAll(".btn-outline-success");
+    for (let i = 0; i < buttons.length; i++) {
+        let button = buttons[i];
+        button.addEventListener('click', function () {
+            let p = button.nextElementSibling;
+            if (p.style.display === "none") {
+                p.style.display = "inline";
+                button.innerText = "Zavriet";
+            } else {
+                p.style.display = "none"
+                button.innerText = "Viac info"
+            }
+        })
+    }
+}

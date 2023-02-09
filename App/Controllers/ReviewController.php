@@ -38,8 +38,10 @@ class ReviewController extends AControllerBase
      */
     public function delete()
     {
-        $review = Review::getOne($this->request()->getValue('id_review'));
-        $review->delete();
+        $review = Review::getOne($id = $_GET['id']);
+        if($review!=null) {
+            $review->delete();
+        }
 
         return $this->redirect("?c=review");
     }

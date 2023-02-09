@@ -42,10 +42,12 @@
                                     <p class="fw-bold lead mb-2"><strong><?= $row->getName() ?></strong></p>
                                 </div>
                             </div>
-                            <?php if ($auth->isLogged() && $row->getIdAuthor() == $auth->getLoggedUserId()) { ?>
+                            <?php if ($auth->isLogged() && $row->getIdAuthor() == $auth->getLoggedUserId() || $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
 
                             <a href="?c=review&a=edit&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>
-                            <a href="?c=review&a=delete&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>
+                            <!--<a href="?c=review&a=delete&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>-->
+                                <button  class="btn btn-outline-danger"  onclick="deleteConfrimation(<?=$row->getIdReview()?>)" >Odstraniť</button>
+
                             <?php } ?>
                         </div>
                     </div>
@@ -53,3 +55,17 @@
             </div>
         <?php } ?>
     </ul>
+
+<div id="delete-confrim" class="modal">
+    <form class="modal-content"  method="post" >
+        <div class="container">
+            <h1>Vymazať recenziu</h1>
+            <p>Vážne si prajete odstrániť túto recezniu?</p>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('delete-confrim').style.display='none'"  class="btn btn-secondary">Zrušiť</button>
+                <button type="submit"  onclick="document.getElementById('delete-confrim').style.display='none'" class="btn btn-danger">Odstraniť</button>
+            </div>
+        </div>
+    </form>
+</div>

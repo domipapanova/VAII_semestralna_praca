@@ -69,16 +69,15 @@ if (reviewForm) {
 }
 
 //---delete confirmation
-
-function deleteConfrimation(article) {
-    const id = article;
+function deleteConfrimation(review) {
+    const id = review;
     document.getElementById('delete-confrim').style.display = 'block';
 
     // Get the modal
     let modal = document.getElementById('delete-confrim');
 
     modal.onsubmit = function () {
-        fetch(`?c=blog&a=delete&id=${id}`, {
+        fetch(`?c=review&a=delete&id=${id}`, {
             method: 'DELETE'
         })
     }
