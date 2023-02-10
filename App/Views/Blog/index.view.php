@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="public/css/blogStyle.css">
 <script src="public/js/blog_script.js"></script>
 
-
 <section id="blog" >
     <div class="content">
 

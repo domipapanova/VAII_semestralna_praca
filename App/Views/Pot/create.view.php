@@ -7,17 +7,20 @@ use App\Models\Pot;
 /** @var Pot $pot */
 $pot = $data['pot'];
 ?>
-<form name="newProduct" method="post" action="?c=pot&a=store" enctype="multipart/form-data">
+<script src="public/js/pot_script.js"></script>
+
+<form name="newProduct" method="post" action="?c=pot&a=store" enctype="multipart/form-data" onsubmit="return validatePot()">
+    <h8>* povinné položky</h8>
     <input type="hidden" value="<?= $pot->getIdPot() ?>" name="id" >
 
     <div class="form-group">
-        <label for="exampleFormControlInput1">Názov</label>
+        <label for="exampleFormControlInput1">* Názov</label>
         <p id="name_input" hidden></p>
         <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="<?=$pot->getName();?>" required>
     </div>
 
     <div class="form-group">
-        <label for="exampleFormControlInput1">Cena</label>
+        <label for="exampleFormControlInput1">* Cena</label>
         <p id="price_input" hidden></p>
         <input type="text" pattern="^\d+(\.\d{1,2})?$" class="form-control" id="exampleFormControlInput1" name="price" value="<?=$pot->getPrice();?>" required>
     </div>
@@ -48,7 +51,7 @@ $pot = $data['pot'];
 
     <div class="form-group">
         <label for="exampleFormControlFile1">Vyber obrázok</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="picture" value="<?=$pot->getPictureName();?>">
+        <input type="file"  class="form-control-file" id="exampleFormControlFile1" name="picture" value="<?=$pot->getPictureName();?>">
     </div>
 
     <div class="form-group">

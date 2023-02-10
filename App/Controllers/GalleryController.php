@@ -61,38 +61,41 @@ class GalleryController extends AControllerBase
 
         if(isset($data['nazov']) && isset($data['cena'])) {
 
-
+            if(strlen($data['nazov']) <= 200 && is_numeric($data['cena'])) {
                 $product->setProductName($this->request()->getValue('nazov'));
                 $product->setPrice($this->request()->getValue('cena'));
-                $product->setDescription($this->request()->getValue('popis'));
-            if (isset($_FILES['picture'])) {
-                $errors = [];
-                $file_name = $_FILES['picture']['name'];
-                $file_size = $_FILES['picture']['size'];
-                $file_tmp = $_FILES['picture']['tmp_name'];
-                $file_type = $_FILES['picture']['type'];
-                $file_info = pathinfo($_FILES['picture']['name']);
-                $file_ext = strtolower($file_info['extension']);
 
-                $extensions = ["jpeg", "jpg", "png", "webp"];
-                if (in_array($file_ext, $extensions) === false) {
-                    $errors[] = "Nesprávny formát, povolené sú JPEG alebo PNG";
+                if(isset($data['popis'])&& strlen($data['popis']) <= 1000 ) {
+                    $product->setDescription($this->request()->getValue('popis'));
                 }
 
-                if ($file_size > 2097152) {
-                    $errors[] = 'Veľkosť obrázka musí byť menšia než 2 MB';
-                }
+                if (isset($_FILES['picture'])) {
+                    $errors = [];
+                    $file_name = $_FILES['picture']['name'];
+                    $file_size = $_FILES['picture']['size'];
+                    $file_tmp = $_FILES['picture']['tmp_name'];
+                    $file_type = $_FILES['picture']['type'];
+                    $file_info = pathinfo($_FILES['picture']['name']);
+                    $file_ext = strtolower($file_info['extension']);
 
-                if (empty($errors)) {
-                    move_uploaded_file($file_tmp, "./public/images/" . $file_name);
-                    $product->setPictureName($file_name);
-                }
+                    $extensions = ["jpeg", "jpg", "png", "webp"];
+                    if (in_array($file_ext, $extensions) === false) {
+                        $errors[] = "Nesprávny formát, povolené sú JPEG alebo PNG";
+                    }
 
+                    if ($file_size > 2097152) {
+                        $errors[] = 'Veľkosť obrázka musí byť menšia než 2 MB';
+                    }
+
+                    if (empty($errors)) {
+                        move_uploaded_file($file_tmp, "./public/images/" . $file_name);
+                        $product->setPictureName($file_name);
+                    }
+                }
+                $product->save();
             }
-            $product->save();
         }
         return $this->redirect("?c=gallery");
-
     }
 
     /**

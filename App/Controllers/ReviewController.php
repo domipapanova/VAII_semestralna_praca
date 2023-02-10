@@ -51,8 +51,20 @@ class ReviewController extends AControllerBase
         return $this->html([
             'review' => Review::getOne($this->request()->getValue('id_review'))
         ],
-            'create'
+            'edit'
         );
+    }
+
+    public function saveEdit() {
+        $data = $this->request()->getPost();
+
+        $id = $this->request()->getValue('id_review');
+        $review =  Review::getOne($id);
+        if(isset($data['text'])) {
+            $review->setText($this->request()->getValue('text'));
+            $review->save();
+        }
+        return $this->redirect("?c=review");
     }
     /**
      * @throws \Exception
