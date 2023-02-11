@@ -60,7 +60,6 @@ class GalleryController extends AControllerBase
         $product = ($id ? Product::getOne($id) : new Product());
 
         if(isset($data['nazov']) && isset($data['cena'])) {
-
             if(strlen($data['nazov']) <= 200 && is_numeric($data['cena'])) {
                 $product->setProductName($this->request()->getValue('nazov'));
                 $product->setPrice($this->request()->getValue('cena'));

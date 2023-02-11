@@ -18,6 +18,29 @@ function deleteConfrimation(article) {
         }
     }
 }
+//validation
+function validateArticle() {
+    let img = document.forms["newArticle"]["article_picture"].value;
+    let fileInput = document.getElementById("article_picture");
+
+    let allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+    if (img != "") {
+        var file = fileInput.files[0];
+
+        if( !allowedTypes.includes(file.type)) {
+            warning("picture_input", "Nesprávny formát, povolené sú JPEG, WEBP alebo PNG");
+            return false;
+        } else  if (file.size > 2097152) {
+            warning("picture_input", "Veľkosť obrázka musí byť menšia než 2 MB");
+            return false;
+        } else {
+            warning("picture_input","");
+        }
+    } else {
+        warning("picture_input","");
+    }
+    return true;
+}
 
 
 
