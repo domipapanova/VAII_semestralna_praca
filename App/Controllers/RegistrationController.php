@@ -48,11 +48,11 @@ class RegistrationController extends AControllerBase
             $password = password_hash($data["password"], PASSWORD_BCRYPT);
             $user->setPassword($password);
 
-           // if (isset($data['phoneNumber']) && preg_match("/^[+]421[0-9]{9}$",$phone)) {
+            if (isset($data['phoneNumber']) && preg_match("/^(\+421|0)\d{9}$/",$phone)) {
                 $user->setPhoneNumber($phone);
-           // } else {
-             //   $user->setPhoneNumber('');
-            //}
+            } else {
+                $user->setPhoneNumber('');
+            }
             $user->save();
         }
 

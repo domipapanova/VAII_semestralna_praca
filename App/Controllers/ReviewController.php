@@ -75,8 +75,7 @@ class ReviewController extends AControllerBase
 
         $id = $this->request()->getValue('id');
         $review = ($id ? Review::getOne($id) : new Review());
-       if(isset($data['text'])) {
-          /* $review->setMeno($this->request()->getValue('meno'));*/
+       if(isset($data['text']) && strlen($data['text']) < 2000 ) {
            $review->setIdAuthor($this->request()->getValue('id-author'));
            $review->setText($this->request()->getValue('text'));
            $review->save();
