@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="public/css/homeStyle.css">
 
-<section id="section-home">
+<div class="section-home">
 
     <div class="content">
         <header class="post-header">
@@ -14,5 +14,5 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 

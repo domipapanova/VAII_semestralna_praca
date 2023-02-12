@@ -15,7 +15,18 @@
 .edit-buttons {
     margin-top: 1%;
     margin-bottom: 1%;
+    display: inline-flex;
+
 }
+
+.buttonFrom {
+    width: 90px;
+    margin-right: 2px;
+}
+.edit-buttons .btn-primary {
+    width: 100%;
+}
+
 
 .blog-header {
     display: block;

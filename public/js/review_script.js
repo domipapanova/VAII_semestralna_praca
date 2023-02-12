@@ -1,5 +1,4 @@
 // async adding of review
-//TODO: nefunguje edit hned po async pridani
 function addReview()
 {
     document.getElementById("reviewButton").hidden = true;
@@ -57,8 +56,16 @@ if (reviewForm) {
                                 </p>
                             </div>
                          </div>
-                         <a href="?c=review&a=edit&id_review={x.id_review}"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>
-                         <a href="?c=review&a=delete&id_review={x.id_review}"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>
+                         
+                         <!--<a href="?c=review&a=edit&id_review={x.id_review}"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>-->
+                         <!--<a href="?c=review&a=delete&id_review={x.id_review}"> <button type="submit" class="btn btn-outline-danger">Odstraniť</button> </a>-->
+                        <div class="edit-buttons">
+                            <form class="buttonFrom" action="?c=review&a=edit" method="post">
+                                <input type="hidden" name="id_review" value="${x.id_review}">
+                                <button  type="submit" class="btn btn-outline-primary">Upraviť</button>
+                            </form>
+                           <button  class="btn btn-outline-danger"  onclick="deleteConfrimation(${x.id_review})" >Odstraniť</button>
+                        </div>
                      </div>
                  </div>
             </div>`

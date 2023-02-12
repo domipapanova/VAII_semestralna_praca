@@ -1,3 +1,14 @@
+/*edit buttons*/
+.buttonFrom {
+    width: 90px;
+    margin-right: 2px;
+}
+.edit-buttons .btn-outline-primary {
+    width: 100%;
+}
+.edit-buttons {
+    display: inline-flex;
+}
 .search-bar {
     width: 50%;
     margin-bottom: 1%;
@@ -14,10 +25,10 @@
     margin-top: 1%;
 }
 /* titulky galerie*/
-.product-titles {
+/*.product-titles {
     margin-bottom: 50%;
     margin-left: 30%;
-}
+}*/
 h1{
     font-size: xxx-large;
   margin-left: 30%;
@@ -98,9 +109,9 @@ hr {
     display: table;
 }
 
-button .buttonInfo {
+/*button .buttonInfo {
     cursor: pointer;
-}
+}*/
 
 .card-infoProduct {
     display: none;

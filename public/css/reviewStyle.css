@@ -1,3 +1,13 @@
+.buttonFrom {
+    width: 90px;
+    margin-right: 2px;
+}
+.edit-buttons .btn-outline-primary {
+    width: 100%;
+}
+.edit-buttons {
+    display: inline-flex;
+}
 /* reviews*/
 h1 {
     text-align: center;

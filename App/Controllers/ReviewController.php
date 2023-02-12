@@ -80,24 +80,10 @@ class ReviewController extends AControllerBase
            $review->setText($this->request()->getValue('text'));
            $review->save();
        }
-        //return $this->redirect("?c=review");
 
         return $this->json(Review::getAll());
     }
 
-    /*public function newReview() {
-        $data = $this->request()->getPost();
-
-        $id = $this->request()->getValue('id');
-        $review = ($id ? Review::getOne($id) : new Review());
-        if(isset($data['meno'])&& isset($data['text'])) {
-            $review->setMeno($this->request()->getValue('meno'));
-            $review->setText($this->request()->getValue('text'));
-            $review->save();
-        }
-        return $this->getReviews();
-    }
-*/
     /**
      * @throws \Exception
      */

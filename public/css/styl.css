@@ -20,7 +20,7 @@ body {
 }
 
 
-#top{
+.top{
     overflow: hidden;
     top: 0;
     width: 100%;
@@ -36,7 +36,7 @@ ul{
     list-style-type: none ; /* bez prvkov zoznamu*/
 }
 
-#top #navbar{
+.top #navbar{
     position: fixed; /*aj pri scrollovani ostava na mieste*/
     width: 100%;
     background: darkseagreen;
@@ -58,7 +58,7 @@ ul{
 }
 
 
-#top a:hover {
+.top a:hover {
     color: mediumseagreen;
 }
 
@@ -67,14 +67,14 @@ ul{
     margin-left: 17%;
 }
 
-#top a {
+.top a {
     color: white;
     text-decoration: none;
     font-size: 17px;
     display: flex;
 }
 /*scroll hamburger*/
-#top a.Icon {
+.top a.Icon {
     display: none;
 }
 /*kvietok*/
@@ -89,13 +89,13 @@ ul{
 
 /*footer of the page*/
 
-#section-contact{
+.section-contact{
     background: #000;
     color: #fff;
     margin-top: 10%;
 }
 
-#section-contact p {
+.section-contact p {
     font-size: 18px;
     text-transform: uppercase;
     line-height: 36px;
@@ -103,7 +103,7 @@ ul{
     padding-top: 5%;
 }
 
-#section-contact .personal li {
+.section-contact .personal li {
     letter-spacing: 2px;
 }
 
@@ -150,7 +150,7 @@ ul{
     color: #EBE22C;
 }
 
-#section-contact .menu{
+.section-contact .menu{
     display: flex;
     padding-top: 5%;
 }
@@ -215,7 +215,7 @@ footer li:last-child:after{
         margin: 0;
     }
 
-    #top{
+    .top{
         overflow: hidden;
         top: 0;
         width: 100%;
@@ -223,7 +223,7 @@ footer li:last-child:after{
         position: relative;
     }
 
-    #top #navbar{
+    .top #navbar{
         position: fixed;
         width: 100%;
         display: block;
@@ -247,7 +247,7 @@ footer li:last-child:after{
     }
 
 
-    #top a:hover {
+    .top a:hover {
         color: grey;
     }
 
@@ -259,14 +259,14 @@ footer li:last-child:after{
         margin: 0;
     }
 
-    #top a {
+    .top a {
         color: white;
         text-decoration: none;
         font-size: 17px;
         display: block;
     }
 
-    #top a.Icon {
+    .top a.Icon {
         display: block; /* zjavi sa hamburger meni sa z none*/
         position: absolute;
         right: 0;
@@ -274,11 +274,11 @@ footer li:last-child:after{
         height: 50px;
     }
 
-    #top .fa{
+    .top .fa{
         font-size: 50px;
     }
 
-    #top a:hover {
+    .top a:hover {
         background-color: #A5C79D;
         color: black;
     }
@@ -314,11 +314,11 @@ footer li:last-child:after{
         padding-left: 0;
     }
 
-    #section-contact{
+    .section-contact{
         margin-top: 50%;
     }
 
-    #section-contact .menu {
+    .section-contact .menu {
         display: block;
         padding-top: 5%;
     }
@@ -332,7 +332,7 @@ footer li:last-child:after{
         margin-left: 36%;
     }
 
-    #section-contact .personal li {
+    .section-contact .personal li {
         letter-spacing: 1px;
     }
 
@@ -381,7 +381,7 @@ footer li:last-child:after{
 
 /* galeria */
 
-#top #navbar{
+.top #navbar{
     z-index: 1;
 }
 

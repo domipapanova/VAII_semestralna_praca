@@ -1,5 +1,6 @@
 <?php /* @var \App\Models\Product[] $data */
 /** @var \App\Core\IAuthenticator $auth */
+
 ?>
 <script src="public/js/gallery_script.js"></script>
 <link rel="stylesheet" href="public/css/galeryStyle.css">
@@ -7,20 +8,25 @@
 <div class="search-bar">
     <form>
         <div class="input-group">
-            <input type="search" id="serachBar" class="form-control rounded" placeholder="Najdite rastlinu, kvetináč..." aria-label="Search" aria-describedby="search-addon"  onkeyup="showResult(this.value)"/>
+            <input type="search" id="serachBar" class="form-control rounded" placeholder="Najdite rastlinu, kvetináč..." aria-label="Search"  onkeyup="showResult(this.value)">
         </div>
     </form>
 </div>
 
 <div class="gallery-top">
-    <div class=product-titles">
+    <div class="product-titles">
         <h1> Rastlinky</h1>
     </div>
 
     <?php if ($auth->isLogged() && $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
-        <a class="createProduct" href="?c=gallery&a=create">
+        <!--<a class="createProduct" href="?c=gallery&a=create">
             <button type="button" class="btn btn-outline-success"> Nový príspevok</button>
-        </a>
+        </a>-->
+
+        <form class="createProduct" action="??c=gallery&a=create" method="post">
+            <button  type="submit" class="btn btn-outline-success">Nový príspevok</button>
+        </form>
+
     <?php } ?>
 
 </div>
@@ -40,19 +46,27 @@
 
                         <div class="card-body">
                             <h5><?=$row->getProductName()?></h5>
-                            <button type="button" id="buttonInfo" class="btn btn-outline-success" >Viac info</button>
-                            <p class="card-infoProduct" id="infoProduct" ><?=$row->getDescription()?></p>
+                            <!--<button type="button" id="buttonInfo" class="btn btn-outline-success" >Viac info</button>-->
+                            <button type="button"  class="btn btn-outline-success" >Viac info</button>
+                            <!--<p class="card-infoProduct" id="infoProduct" ><?=$row->getDescription()?></p>-->
+                            <p class="card-infoProduct"  ><?=$row->getDescription()?></p>
+
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <small class="text-muted"><?=$row->getPrice()?>€</small>
                             </div>
 
                             <?php if ($auth->isLogged()&& $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
-
-                                <a href="?c=gallery&a=edit&id_product=<?= $row->getIdProduct() ?>">
+                            <div class="edit-buttons">
+                               <!-- <a href="?c=gallery&a=edit&id_product=<?= $row->getIdProduct() ?>">
                                     <button type="submit" class="btn btn-outline-primary"  >Upraviť</button>
-                                </a>
+                                </a>-->
+                                <form class="buttonFrom" action="?c=gallery&a=edit" method="post">
+                                    <input type="hidden" name="id_product" value="<?= $row->getIdProduct() ?>">
+                                    <button  type="submit" class="btn btn-outline-primary">Upraviť</button>
+                                </form>
                                 <button  class="btn btn-outline-danger"  onclick="deleteConfrimation(<?=$row->getIdProduct()?>)" >Odstraniť</button>
+                            </div>
                             <?php } ?>
 
                         </div>
@@ -63,7 +77,6 @@
 
         </div>
 </div>
-
 
 
 <div id="delete-confrim" class="modal">

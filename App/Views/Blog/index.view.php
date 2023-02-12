@@ -11,31 +11,42 @@
         <div class="blog-header">
             <h1>Najnovšie</h1>
             <?php if ($auth->isLogged() && $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
-            <a class="createArticle" href="?c=blog&a=create">
-
+            <!--<a class="createArticle" href="?c=blog&a=create">
             <button type="button" class="btn btn-success">Nový príspevok</button>
+            </a>-->
+                <form class="createArticle" action="?c=blog&a=create" method="post">
+                    <button  type="submit" class="btn btn-success">Nový príspevok</button>
+                </form>
             <?php } ?>
-            <a/>
         </div>
 
         <?php foreach (array_reverse($data) as $row) { ?>
         <div class="clanok">
             <div class="article-body">
                 <div class="text">
-                    <h2> <a href="<?=$row->getLinks() ?>"><?=$row->getTitle() ?></a></h2>
+                    <h2>
+                        <a href="<?=$row->getLinks() ?>">
+                            <?=$row->getTitle() ?>
+                        </a>
+                    </h2>
                     <p><?=$row->getText() ?></p>
                 </div>
                 <div class="obr">
-                    <p> <img src=".\public\images\<?=$row->getPictureName() ?>" alt="Generic placeholder image"></p>
+                    <p> <img src="./public/images/<?=$row->getPictureName() ?>" alt="Generic placeholder image"></p>
                 </div>
             </div>
 
             <?php if ($auth->isLogged()&& $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
             <div class="edit-buttons">
-                <a href="?c=blog&a=edit&id_article=<?= $row->getIdArticle() ?>">
+                <!--<a href="?c=blog&a=edit&id_article=<?= $row->getIdArticle() ?>">
                     <button type="submit" class="btn btn-primary" >Upraviť</button>
-                </a>
-               <button  class="btn btn-danger"  onclick="deleteConfrimation(<?=$row->getIdArticle()?>)" >Odstraniť</button>
+                </a>-->
+                <form class="buttonFrom" action="?c=blog&a=edit" method="post">
+                    <input type="hidden" name="id_article" value="<?=$row->getIdArticle() ?>">
+                    <button  type="submit" class="btn btn-primary">Upraviť</button>
+                </form>
+
+                <button  class="btn btn-danger"  onclick="deleteConfrimation(<?=$row->getIdArticle()?>)" >Odstraniť</button>
             </div>
             <?php } ?>
         </div>
@@ -95,21 +106,21 @@
         <h1>Zakladatelia našej predajne</h1>
         <div class="text">
             <div class="box">
-                <p><img src=".\public\images\f1.jpg" alt="Instant Image"></p>
+                <p><img src="./public/images/f1.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Damián Kukurica</p>
                 </div>
             </div>
 
             <div class="box">
-                <p> <img src=".\public\images\f3.jpg" alt="Instant Image"></p>
+                <p> <img src="./public/images/f3.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Dominika Papánová</p>
                 </div>
             </div>
 
             <div class="box">
-                <p><img src=".\public\images\f2.jpg" alt="Instant Image"></p>
+                <p><img src="./public/images/f2.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Hana Mrkvičková</p>
                 </div>

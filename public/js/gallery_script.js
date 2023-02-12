@@ -59,8 +59,10 @@ function deleteConfrimation(product) {
 
                       <div class="card-body">
                           <h5>${x.product_name}</h5>
-                            <button type="button" id="buttonInfo" class="btn btn-outline-success" >Viac info</button>
-                              <p class="card-infoProduct" id="infoProduct" >${x.description}</p>
+                            <!--<button type="button" id="buttonInfo" class="btn btn-outline-success" >Viac info</button>-->
+                            <button type="button"  class="btn btn-outline-success" >Viac info</button>
+                              <!--<p class="card-infoProduct" id="infoProduct" >${x.description}</p>-->
+                              <p class="card-infoProduct"  >${x.description}</p>
                           <div class=" d-flex justify-coclassName-between align-items-center">
                                   <small class=" text-muted">${x.price}€</small>
                           </div>
