@@ -1,5 +1,3 @@
-/* domov */
-
 /* smooth scrollovanie menu*/
 html{
     scroll-behavior: smooth; /* jemne scrollovanie, neseka obraz*/
@@ -18,7 +16,6 @@ body {
     margin-left: 10%; /*medzery skraja*/
     margin-right: 10%;
 }
-
 
 .top{
     overflow: hidden;
@@ -57,7 +54,6 @@ ul{
     padding-right: 2%;
 }
 
-
 .top a:hover {
     color: mediumseagreen;
 }
@@ -88,11 +84,10 @@ ul{
 }
 
 /*footer of the page*/
-
 .section-contact{
     background: #000;
     color: #fff;
-    margin-top: 10%;
+    margin-top: 15%;
 }
 
 .section-contact p {
@@ -113,7 +108,7 @@ ul{
 
 .social {
     padding-bottom: 5%;
-    margin-left: 5%;
+    margin-left: 6%;
 }
 
 .personal li {
@@ -142,12 +137,12 @@ ul{
 
 .social-icon:hover {
     color: #000;
-    background: #EBE22C;
+    background: darkseagreen;
 }
 
 .personal a:hover,
 .personal a:focus{
-    color: #EBE22C;
+    color: darkseagreen;
 }
 
 .section-contact .menu{
@@ -156,7 +151,7 @@ ul{
 }
 
 .personal-info{
-    padding-left: 25%;
+    padding-left: 28%;
 }
 
 footer {
@@ -206,7 +201,7 @@ footer li:after {
 footer li:last-child:after{
     content: none;
 }
-
+/* responsive design --------------------------------------------------------------------*/
 @media  screen and (max-width: 576px){
     html{
         min-width: 300px;
@@ -251,8 +246,6 @@ footer li:last-child:after{
         color: grey;
     }
 
-
-
     #myLinks {
         display: none;
         background: #82A37A;
@@ -287,14 +280,19 @@ footer li:last-child:after{
         width: 90%;
     }
 
+
+
     .quote{
-        margin-top: 250px;
         font-size: 0.5em;
     }
-
-    #blog img{
-        margin-left: 30%;
+    .quote-background {
+        margin-top: 290px;
     }
+
+    .post-title {
+        margin-left: 10px;
+    }
+
 
     #section-about h1{
         font-size: 4em;
@@ -315,7 +313,7 @@ footer li:last-child:after{
     }
 
     .section-contact{
-        margin-top: 50%;
+        margin-top: 1%;
     }
 
     .section-contact .menu {
@@ -359,7 +357,9 @@ footer li:last-child:after{
         margin-top: 100px;
         margin-right: 25px;
     }
-}
+
+
+    }
 @media  screen and (max-width: 1388px) and (min-width: 577px){
     #blog img {
         border-radius: 40%;
@@ -390,7 +390,6 @@ footer li:last-child:after{
 }
 
 /* login */
-
 .gradient-custom-2 {
     /* fallback for old browsers */
     background: #fccb90;
@@ -412,77 +411,4 @@ footer li:last-child:after{
         border-top-right-radius: .3rem;
         border-bottom-right-radius: .3rem;
     }
-}
-
-
-/** reviews*
-
-.align-center {
-    text-align: center;
-}
-.hash-list {
-    display: block;
-    padding: 0;
-    margin: 0 auto;
-}
-
-@media (min-width: 768px){
-    .hash-list.cols-3 > li:nth-last-child(-n+3) {
-        border-bottom: none;
-    }
-}
-@media (min-width: 768px){
-    .hash-list.cols-3 > li {
-        width: 33.3333%;
-    }
-}
-.hash-list > li {
-    display: block;
-    float: left;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-.pad-30, .pad-30-all > * {
-    padding: 30px;
-}
-img {
-    border: 0;
-}
-.mgb-20, .mgb-20-all > * {
-    margin-bottom: 20px;
-}
-.wpx-100, .wpx-100-after:after {
-    width: 100px;
-}
-.img-round, .img-rel-round {
-    border-radius: 50%;
-}
-.padb-30, .padb-30-all > * {
-    padding-bottom: 30px;
-}
-
-.mgb-40, .mgb-40-all > * {
-    margin-bottom: 40px;
-}
-.align-center {
-    text-align: center;
-}
-[class*="line-b"] {
-    position: relative;
-    padding-bottom: 20px;
-    border-color: #E6AF2A;
-}
-.fg-text-d, .fg-hov-text-d:hover, .fg-active-text-d.active {
-    color: #222;
-}
-.font-cond-b {
-    font-weight: 70
-}
-*/
-
-.card-infoProduct {
-    display: none;
-}
-button .buttonInfo {
-    cursor: pointer;
 }

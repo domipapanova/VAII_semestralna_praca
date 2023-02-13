@@ -1,3 +1,5 @@
+<script src="public/js/registration_script.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="alert alert-danger" role="alert">

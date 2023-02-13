@@ -16,7 +16,6 @@
     margin-top: 1%;
     margin-bottom: 1%;
     display: inline-flex;
-
 }
 
 .buttonFrom {
@@ -125,6 +124,7 @@
 #section-foundres .text{
     width: 100%;
     display: flex;
+    font-size: xx-large;
 }
 
 #section-foundres .box{
@@ -163,6 +163,72 @@
 #section-foundres h1 {
     color: white;
 }
+
+/* responsive design */
+@media  screen and (max-width: 576px) {
+
+
+    .edit-buttons {
+        padding-left: 17%;
+    }
+
+    #blog h1 {
+        font-size: xx-large;
+    }
+
+    #blog .text {
+        text-align: center;
+    }
+
+    #blog .text a {
+        font-size: large;
+    }
+
+    #blog .text p {
+        font-size: smaller;
+    }
+
+    #blog .clanok {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #blog .obr {
+        width: 70%;
+        height: 20%;
+        text-align: center;
+    }
+
+    #blog img {
+        margin-left: 1%;
+        width: 70%;
+    }
+
+    .article-body {
+        display: block;
+        text-align: -webkit-center;
+    }
+
+    #section-foundres h1 {
+        font-size: 1.5em;
+    }
+
+    .content {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    #section-foundres .text {
+        display: block;
+        margin-left: 17%;
+        margin-top: 5%;
+    }
+
+    #section-foundres .box {
+        width: 60%;
+    }
+
+    }
+
 
 /*bootstrap-----------------------------------*/
 /*delete window*/
