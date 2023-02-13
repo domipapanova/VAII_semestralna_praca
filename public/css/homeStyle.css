@@ -26,14 +26,16 @@
     text-align: -webkit-center;
     padding-top: 7.5%;
 }
-
+.section-contact {
+    margin-top: 30%;
+}
 
 .quote-background {
     width: 100%;
 }
 
 .quote{
-    margin-top: 13%;
+    margin-top: 18%;
 }
 
 blockquote {
