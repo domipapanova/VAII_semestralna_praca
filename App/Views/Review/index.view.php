@@ -4,27 +4,27 @@
 <link rel="stylesheet" href="public/css/reviewStyle.css">
 <script src="public/js/review_script.js"></script>
 
-<?php if ($auth->isLogged()) {?>
+<!-- adding review for looged users-->
     <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
-        <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Ešte si nás neohodnotil? </h4>
-             <button id="reviewButton" type="button" class="btn btn-outline-success" onclick="addReview()">Ohodnoť nás</button>
-
-        <div class="review-class">
-           <div class="place-for-review" id="place-for-review" hidden>
-               <form  name="reviewForm" id="reviewForm">
-                   <input type="hidden"  name="id-author" value="<?=$auth->getLoggedUserId()?>">
-                   <div class="form-group">
-                       <label id="review-title" for="exampleFormControlTextarea1">Recenzia</label>
-                       <textarea maxlength="2000" class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" placeholder="Napíšte nám čo máte na mysli ..." required></textarea>
-                   </div>
-                   <button type="submit"  class="btn btn-outline-success">Pridaj recenziu</button>
-              </form>
-           </div>
-        </div>
+        <?php if ($auth->isLogged()) {?>
+            <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Ešte si nás neohodnotil? </h4>
+            <button id="reviewButton" type="button" class="btn btn-outline-success" onclick="addReview()">Ohodnoť nás</button>
+            <div class="review-class">
+                <div class="place-for-review" id="place-for-review" hidden>
+                    <form  name="reviewForm" id="reviewForm">
+                        <input type="hidden"  name="id-author" value="<?=$auth->getLoggedUserId()?>">
+                        <div class="form-group">
+                            <label id="review-title" for="exampleFormControlTextarea1">Recenzia</label>
+                            <textarea maxlength="2000" class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" placeholder="Napíšte nám čo máte na mysli ..." required></textarea>
+                        </div>
+                        <button type="submit"  class="btn btn-outline-success">Pridaj recenziu</button>
+                    </form>
+                </div>
+            </div>
         <?php } ?>
+        <!--header title-->
         <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" id="reviews-main-title" contenteditable="false">Prečítaj si hodnotenia naších zákazníkov</h1>
     </div>
-
     <div class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm" id="body-reviews">
         <?php foreach (array_reverse($data['reviews']) as $row) { ?>
             <div class="row d-flex justify-content-center">
@@ -47,12 +47,10 @@
                             <?php if ($auth->isLogged()) {
                                 if($row->getIdAuthor() == $auth->getLoggedUserId()) {
                               ?>
-                            <!--<a href="?c=review&a=edit&id_review=<?= $row->getIdReview() ?>"> <button type="submit" class="btn btn-outline-primary">Upraviť</button> </a>-->
                                     <form class="buttonFrom" action="?c=review&a=edit" method="post">
                                         <input type="hidden" name="id_review" value="<?= $row->getIdReview() ?>">
                                         <button  type="submit" class="btn btn-outline-primary">Upraviť</button>
                                     </form>
-
                                 <?php }} ?>
                             <?php if ($auth->isLogged()) {
                             if($row->getIdAuthor() == $auth->getLoggedUserId() || $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) {
@@ -67,6 +65,7 @@
         <?php } ?>
     </div>
 
+<!--delete confrimation modal-->
 <div id="delete-confrim" class="modal">
     <form class="modal-content"  method="post" >
         <div class="container">

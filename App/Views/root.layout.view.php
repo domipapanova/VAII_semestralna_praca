@@ -15,6 +15,7 @@
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="public/css/styl.css">
+        <!--Ikonka-->
         <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
         <script src="public/js/script.js"></script>
         <meta name="viewport"
@@ -26,8 +27,7 @@
     </head>
 
     <body>
-        <div onresize="screen_resize()"> <!-- onresize , pre javascript-->
-        <!--<div class="container"> -->
+        <div onresize="screen_resize()">
             <div class="top">
                 <nav id="navbar">
                     <a href="?c=home" class="Plant">
@@ -46,8 +46,7 @@
                         <a href="?c=auth&a=login">Prihlásenie</a>
                         <?php } ?>
                     </div>
-
-                    <!--HAMBURGER , onclick - javascript -->
+                    <!--HAMBURGER -->
                     <a href="javascript:void(0);" class="Icon" onclick="myFunction()">
                         <i class="fa fa-bars"></i>
                     </a>
@@ -63,7 +62,6 @@
             <div class="section-contact" id="section-contact">
                 <div class="content">
                     <p>Kontaktuj nás:</p>
-
                     <div class="personal-info">
                         <ul class="menu personal">
                             <li><i class="fa fa-mobile-phone"></i><a href="tel:0944673050">0944 673 050</a></li>
@@ -86,6 +84,7 @@
                     <p> design by Domi Papánová</p>
                 </div>
             </footer>
+
         </div>
     </body>
 </html>

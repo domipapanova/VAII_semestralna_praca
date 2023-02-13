@@ -3,20 +3,18 @@
 ?>
 <script src="public/js/pot_script.js"></script>
 <link rel="stylesheet" href="public/css/galeryStyle.css">
-
+<!-- new product button -->
 <div class="gallery-top"  id="pots" >
     <div class="product-titles" id="pots-title">
         <h1> Kvetináče</h1>
     </div>
-
     <?php if ($auth->isLogged() && $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
-        <!--<a class="createProduct" href="?c=pot&a=create"><button type="button" class="btn btn-outline-success"> Nový príspevok</button> </a>-->
         <form class="createProduct" action="??c=pot&a=create" method="post">
             <button  type="submit" class="btn btn-outline-success">Nový príspevok</button>
         </form>
     <?php } ?>
 </div>
-
+<!-- gallery body-->
 <div class="infoProducts">
     <p> Keramické a plastové jednofarebné kvetináče vhodné na izbové rastliny. Kovové a terakotové kvetináče so stojanom sú štýlovým interiérovým doplnkom. Skvelo oživia moderný interiér. Keramické a terakotové kvetináče s podmiskou s jednoduchými aj rôznymi výnimočnými dizajnami. Vhodné na izbové rastliny.</p>
 </div>
@@ -45,9 +43,6 @@
 
                             <?php if ($auth->isLogged()&& $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
                                 <div class="edit-buttons">
-                                   <!-- <a href="?c=pot&a=edit&id_pot=<?= $pot->getIdPot() ?>">
-                                        <button type="submit" class="btn btn-outline-primary"  >Upraviť</button>
-                                    </a>-->
                                     <form class="buttonFrom" action="?c=pot&a=edit" method="post">
                                         <input type="hidden" name="id_pot" value="<?= $pot->getIdPot() ?>">
                                         <button  type="submit" class="btn btn-outline-primary">Upraviť</button>

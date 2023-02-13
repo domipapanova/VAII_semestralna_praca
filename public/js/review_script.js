@@ -27,7 +27,7 @@ if (reviewForm) {
 
         const reviews = await response.json();
         reviews.reverse();
-
+        //getting authors name
         const response2 = await fetch('?c=user&a=getUsers');
         const users = await response2.json();
 

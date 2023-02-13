@@ -1,4 +1,4 @@
-//---"viac info"
+// button "viac info" showing describtion
 window.onload = function () {
     let buttons = document.querySelectorAll(".btn-outline-success");
     for (let i = 0; i < buttons.length; i++) {
@@ -15,7 +15,7 @@ window.onload = function () {
         })
     }
 }
-//---delete confirmation
+//---delete confirmation, showing modal
 function deleteConfrimation(product) {
     const id = product;
     document.getElementById('delete-confrim').style.display = 'block';
@@ -35,46 +35,43 @@ function deleteConfrimation(product) {
     }
 }
 
+// live search
+async function showResult(str) {
 
-// ---------live search
-    async function showResult(str) {
+    let response;
+    //getting data from database
+    response = await fetch("?c=gallery&a=getProducts");
 
-         let response;
-         //getting data from database
-         response = await fetch("?c=gallery&a=getProducts");
+    const products = await response.json();
+    //filtration - if data contains "string"
+    const findedProducts = products.filter(x => x.product_name.toLowerCase().includes(str.toLowerCase()));
 
-         const products = await response.json();
-         //filtration - if data contains "string"
-         const findedProducts = products.filter(x => x.product_name.toLowerCase().includes(str.toLowerCase()));
+    document.getElementById('gallery-body').innerHTML = '';
 
-         document.getElementById('gallery-body').innerHTML = '';
+    //new filtred output
+    for (const x of findedProducts) {
+        const newCol = document.createElement('div');
+        newCol.classList.add('col');
 
-            for (const x of findedProducts) {
-                const newCol = document.createElement('div');
-                newCol.classList.add('col');
+        newCol.innerHTML =
+            `<div class="card shadow-sm">
+                     <img src="./public/images/${x.picture_name}" alt="product image">
 
-                newCol.innerHTML =
-                    `<div class="card shadow-sm">
-                      <img src="./public/images/${x.picture_name}" alt="product image">
-
-                      <div class="card-body">
-                          <h5>${x.product_name}</h5>
-                            <!--<button type="button" id="buttonInfo" class="btn btn-outline-success" >Viac info</button>-->
+                     <div class="card-body">
+                         <h5>${x.product_name}</h5>
                             <button type="button"  class="btn btn-outline-success" >Viac info</button>
-                              <!--<p class="card-infoProduct" id="infoProduct" >${x.description}</p>-->
-                              <p class="card-infoProduct" id="infoProduct" >${x.description}</p>
-                          <div class=" d-flex justify-coclassName-between align-items-center">
-                                  <small class=" text-muted">${x.price}€</small>
-                          </div>
-                      </div>
-                  </div> `
+                            <p class="card-infoProduct" id="infoProduct" >${x.description}</p>
+                         <div class=" d-flex justify-coclassName-between align-items-center">
+                            <small class=" text-muted">${x.price}€</small>
+                         </div>
+                     </div>
+             </div> `;
 
-                document.getElementById('gallery-body').appendChild(newCol);
-            }
-
-
+            document.getElementById('gallery-body').appendChild(newCol);
     }
-//validation
+}
+
+//create new product - validation
 function validateProduct() {
     let name = document.forms["newProduct"]["nazov"].value;
     let price = document.forms["newProduct"]["cena"].value;

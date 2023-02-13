@@ -27,8 +27,7 @@
 </head>
 
 <body>
-    <div onresize="screen_resize()"> <!-- onresize , pre javascript-->
-        <!--<div class="container">  HAHAHAH-->
+    <div onresize="screen_resize()">
         <div class="top">
             <nav id="navbar">
                 <a href="?c=home" class="Plant">
@@ -42,10 +41,8 @@
                     <a href="#section-contact">Kontakt</a>
                     <a href="?c=review">Recenzie</a>
                     <a href="?c=auth&a=logout">Odhlasenie</a>
-
                 </div>
 
-                <!--HAMBURGER , onclick - javascript -->
                 <a href="javascript:void(0);" class="Icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -61,7 +58,6 @@
         <div class="section-contact" id="section-contact">
             <div class="content">
                 <p>Kontaktuj nás:</p>
-
                 <div class="personal-info">
                     <ul class="menu personal">
                         <li><i class="fa fa-mobile-phone"></i><a href="tel:0944673050">0944 673 050</a></li>
@@ -78,8 +74,8 @@
                 </div>
             </div>
         </div>
-        <footer>
 
+        <footer>
             <div class="content">
                 <p> design by Domi Papánová</p>
             </div>

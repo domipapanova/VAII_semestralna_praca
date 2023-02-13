@@ -10,7 +10,7 @@ function screen_resize() {
 
 }
 
-/* block  zjavia sa pod sebou linky*/
+/* clicking on hamburger showing links*/
 function myFunction() {
     var x = document.getElementById("myLinks"); /* ziskam podla id  MyLinks*/
     if (x.style.display === "block") {  /*schovas ponuku*/
@@ -20,6 +20,7 @@ function myFunction() {
     }
 }
 
+// showing hidden password - login
 function showPassword() {
     var x = document.getElementById("password");
     if (x.type === "password") {
@@ -28,7 +29,7 @@ function showPassword() {
         x.type = "password";
     }
 }
-
+// showing warning during validation
 function warning(input, text) {
     let warning = document.getElementById(input);
     warning.hidden = false;
@@ -40,5 +41,3 @@ function hideWarning(input) {
     let warning = document.getElementById(input);
     warning.hidden = true;
 }
-
-

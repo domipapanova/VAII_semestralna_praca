@@ -1,4 +1,4 @@
-//---delete confirmation
+//delete confirmation, showing modal
 function deleteConfrimation(article) {
     const id = article;
     document.getElementById('delete-confrim').style.display = 'block';
@@ -18,13 +18,14 @@ function deleteConfrimation(article) {
         }
     }
 }
+
 //validation
 function validateArticle() {
     let img = document.forms["newArticle"]["article_picture"].value;
     let fileInput = document.getElementById("article_picture");
 
     let allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-    if (img != "") {
+    if (img !== "") {
         var file = fileInput.files[0];
 
         if( !allowedTypes.includes(file.type)) {
@@ -41,6 +42,3 @@ function validateArticle() {
     }
     return true;
 }
-
-
-

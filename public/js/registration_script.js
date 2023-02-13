@@ -1,4 +1,5 @@
- function validateRegistration() {
+//registration input validation
+function validateRegistration() {
     let firstName = document.forms["registrationForm"]["firstName"].value;
     let lastName = document.forms["registrationForm"]["lastName"].value;
     let login = document.forms["registrationForm"]["login"].value;

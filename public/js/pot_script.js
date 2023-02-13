@@ -1,3 +1,4 @@
+//delete pot confrimation
 function deleteConfrimation(product) {
     const id = product;
     document.getElementById('delete-confrim').style.display = 'block';
@@ -16,7 +17,8 @@ function deleteConfrimation(product) {
         }
     }
 }
-//viac info
+
+//button viac info
 window.onload = function () {
     let buttons = document.querySelectorAll(".btn-outline-success");
     for (let i = 0; i < buttons.length; i++) {
@@ -33,13 +35,14 @@ window.onload = function () {
         })
     }
 }
-//validation
+
+//create new pot - validation
 function validatePot() {
     let img = document.forms["newPot"]["pot_picture"].value;
     let fileInput = document.getElementById("pot_picture");
 
     let allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-    if (img != "") {
+    if (img !== "") {
         var file = fileInput.files[0];
 
         if( !allowedTypes.includes(file.type)) {
