@@ -62,7 +62,7 @@ function deleteConfrimation(product) {
                             <!--<button type="button" id="buttonInfo" class="btn btn-outline-success" >Viac info</button>-->
                             <button type="button"  class="btn btn-outline-success" >Viac info</button>
                               <!--<p class="card-infoProduct" id="infoProduct" >${x.description}</p>-->
-                              <p class="card-infoProduct"  >${x.description}</p>
+                              <p class="card-infoProduct" id="infoProduct" >${x.description}</p>
                           <div class=" d-flex justify-coclassName-between align-items-center">
                                   <small class=" text-muted">${x.price}€</small>
                           </div>
@@ -120,7 +120,7 @@ function validateProduct() {
     }
 
     let allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-    if (img != "") {
+    if (img !== "") {
         var file = fileInput.files[0];
 
         if( !allowedTypes.includes(file.type)) {

@@ -32,9 +32,7 @@
     text-align: center;
 }
 
-.blog-header h1 {
-    /*margin-left: 33%;*/
-}
+
 .btn-light {
     margin-top: 2%;
 }
@@ -47,10 +45,18 @@
     margin-top: 5%;
 
 }
-#blog h1{
+.blog-header h2{
     text-align: center;
     font-size: 5em;
     padding-top: 5%;
+}
+
+#section-foundres h2{
+    text-align: center;
+    font-size: 4.5em;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
 }
 
 #blog .clanok{
@@ -92,7 +98,7 @@
     color: white;
     text-decoration: none;
 }
-.blog-header h1:hover {
+.blog-header h2:hover {
     color: mediumseagreen;
 }
 
@@ -110,9 +116,7 @@
     margin-left: 10%;
     margin-right: 10%;
 }
-#section-foundres h1{
-    font-size: 4em;
-}
+
 
 #section-foundres{
     background-color: darksalmon;
@@ -160,7 +164,7 @@
     padding: 16px 32px;
 }
 
-#section-foundres h1 {
+#section-foundres h2 {
     color: white;
 }
 
@@ -172,7 +176,10 @@
         padding-left: 17%;
     }
 
-    #blog h1 {
+    #blog .blog-header h2 {
+        font-size: xx-large;
+    }
+    #section-foundres h2 {
         font-size: xx-large;
     }
 
@@ -209,7 +216,7 @@
         text-align: -webkit-center;
     }
 
-    #section-foundres h1 {
+    #section-foundres h2 {
         font-size: 1.5em;
     }
 

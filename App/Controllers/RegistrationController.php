@@ -60,6 +60,9 @@ class RegistrationController extends AControllerBase
 
     }
 
+
+
+
     public function authorize(string $action)
     {
         return true; //

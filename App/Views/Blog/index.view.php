@@ -9,7 +9,7 @@
     <div class="content">
 
         <div class="blog-header">
-            <h1>Najnovšie</h1>
+            <h2>Najnovšie</h2>
             <?php if ($auth->isLogged() && $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
             <!--<a class="createArticle" href="?c=blog&a=create">
             <button type="button" class="btn btn-success">Nový príspevok</button>
@@ -103,7 +103,7 @@
 
 <section id="section-foundres">
     <div class="content">
-        <h1>Zakladatelia našej predajne</h1>
+        <h2>Zakladatelia našej predajne</h2>
         <div class="text">
             <div class="box">
                 <p><img src="./public/images/f1.jpg" alt="Instant Image"></p>

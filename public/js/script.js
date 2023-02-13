@@ -29,4 +29,16 @@ function showPassword() {
     }
 }
 
+function warning(input, text) {
+    let warning = document.getElementById(input);
+    warning.hidden = false;
+    warning.style = "color:red";
+    warning.innerText = text;
+}
+
+function hideWarning(input) {
+    let warning = document.getElementById(input);
+    warning.hidden = true;
+}
+
 
