@@ -2,9 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Auth\DBAuthenticator;
 use App\Core\AControllerBase;
+use App\Core\IAuthenticator;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
+use App\Models\Product;
 use App\Models\Review;
+use App\Models\User;
 
 class ReviewController extends AControllerBase
 {
@@ -15,12 +20,14 @@ class ReviewController extends AControllerBase
      */
     public function index(): Response
     {
+        $authors = User::getAll();
         $reviews = Review::getAll();
-        return  $this->html($reviews);
+        return  $this->html(['reviews' =>$reviews, 'authors' => $authors]);
     }
 
     public function create()
     {
+
         return  $this->html([
             'review' => new Review()
         ], 'create');
@@ -31,8 +38,10 @@ class ReviewController extends AControllerBase
      */
     public function delete()
     {
-        $review = Review::getOne($this->request()->getValue('id_review'));
-        $review->delete();
+        $review = Review::getOne($id = $_GET['id']);
+        if($review!=null) {
+            $review->delete();
+        }
 
         return $this->redirect("?c=review");
     }
@@ -42,25 +51,44 @@ class ReviewController extends AControllerBase
         return $this->html([
             'review' => Review::getOne($this->request()->getValue('id_review'))
         ],
-            'create'
+            'edit'
         );
     }
+
+    public function saveEdit() {
+        $data = $this->request()->getPost();
+
+        $id = $this->request()->getValue('id_review');
+        $review =  Review::getOne($id);
+        if(isset($data['text'])) {
+            $review->setText($this->request()->getValue('text'));
+            $review->save();
+        }
+        return $this->redirect("?c=review");
+    }
     /**
-     * @return  \App\Core\Responses\RedirectResponse
      * @throws \Exception
      */
-    public function store()
+    public function store() : JsonResponse
     {
         $data = $this->request()->getPost();
 
         $id = $this->request()->getValue('id');
         $review = ($id ? Review::getOne($id) : new Review());
-       if(isset($data['meno'])&& isset($data['text'])) {
-           $review->setMeno($this->request()->getValue('meno'));
+       if(isset($data['text']) && strlen($data['text']) < 2000 ) {
+           $review->setIdAuthor($this->request()->getValue('id-author'));
            $review->setText($this->request()->getValue('text'));
            $review->save();
        }
-        return $this->redirect("?c=review");
 
+        return $this->json(Review::getAll());
     }
+
+    /**
+     * @throws \Exception
+     */
+    public function getReviews() : JsonResponse {
+        return $this->json(Review::getAll());
+    }
+
 }

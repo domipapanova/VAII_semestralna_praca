@@ -1,117 +1,126 @@
+<?php /* @var \App\Models\Article[] $data */
+/** @var \App\Core\IAuthenticator $auth */
+
+?>
+<link rel="stylesheet" href="public/css/blogStyle.css">
+<script src="public/js/blog_script.js"></script>
+
 <section id="blog" >
     <div class="content">
-        <h1>Najnovšie</h1>
-        <div class="clanok">
-            <div class="text">
-                <h2> <a href="https://zahradkar.pluska.sk/izbove-rastliny/tri-neprijemne-skodce-izbovych-kvetov-co-robit">Škodcovia: ako ich zničiť?</a></h2>
-                <p>Červce, roztoče či štítničky patria k najbežnejším a najnepríjemnejším škodcom. Dôležitá je preto pravidelná kontrola rastlín a prevencia.</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\plant-care.jpg" alt="Generic placeholder image"></p>
-            </div>
+
+        <div class="blog-header">
+            <h2>Najnovšie</h2>
+            <?php if ($auth->isLogged() && $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
+            <!--<a class="createArticle" href="?c=blog&a=create">
+            <button type="button" class="btn btn-success">Nový príspevok</button>
+            </a>-->
+                <form class="createArticle" action="?c=blog&a=create" method="post">
+                    <button  type="submit" class="btn btn-success">Nový príspevok</button>
+                </form>
+            <?php } ?>
         </div>
 
+        <?php foreach (array_reverse($data) as $row) { ?>
         <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/izbove-rastliny/ocarujuca-paprad-splnte-tychto-5-podmienok-bude-vam-pestovani-da">Paprade: aká je správna starostlivosť ?</a></h2>
-                <p>Očarujúca papraď! Splňte týchto 5 podmienok a bude sa vám v pestovaní dariť</p>
+            <div class="article-body">
+                <div class="text">
+                    <h2>
+                        <a href="<?=$row->getLinks() ?>">
+                            <?=$row->getTitle() ?>
+                        </a>
+                    </h2>
+                    <p><?=$row->getText() ?></p>
+                </div>
+                <div class="obr">
+                    <p> <img src="./public/images/<?=$row->getPictureName() ?>" alt="Generic placeholder image"></p>
+                </div>
             </div>
-            <div class="obr">
-                <p> <img src=".\public\images\paprad.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
 
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://www.zahrada.sk/magazine/co-robi-spravny-zahradkar-v-zime/">Zima: pripravte svoju záhradu!</a></h2>
-                <p>Prečítajte si naše rady a triky, ako pripraviť svoju záhradu na náročne zimné obdobie. Všetko sa dozviete v našom članku.</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\zima.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
+            <?php if ($auth->isLogged()&& $auth->getLoggedUserId() == \App\Config\Configuration::ADMIN) { ?>
+            <div class="edit-buttons">
+                <!--<a href="?c=blog&a=edit&id_article=<?= $row->getIdArticle() ?>">
+                    <button type="submit" class="btn btn-primary" >Upraviť</button>
+                </a>-->
+                <form class="buttonFrom" action="?c=blog&a=edit" method="post">
+                    <input type="hidden" name="id_article" value="<?=$row->getIdArticle() ?>">
+                    <button  type="submit" class="btn btn-primary">Upraviť</button>
+                </form>
 
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/okrasna-zahrada/aj-vy-budete-vediet-ako-mat-krasne-ruze-nielen-zahonoch-ale-aj-nadobach-staci-kupit-julovy-casopis-zahradkar">Ruže: poradíme vám čo predĺži ich kvitnutie.</a></h2>
-                <p>Milujete ruže? Tak si prečítajte naše rady ako ich donútiť kvitnúť čo najdlhšie.</p>
+                <button  class="btn btn-danger"  onclick="deleteConfrimation(<?=$row->getIdArticle()?>)" >Odstraniť</button>
             </div>
-            <div class="obr">
-                <p> <img src=".\public\images\ruze.jpg" alt="Generic placeholder image"></p>
-            </div>
+            <?php } ?>
         </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/okrasna-zahrada/je-tu-vhodny-cas-vysadzanie-jarnych-cibulovin-dodrzte-tychto-6-zakladnych-pravidie">Pripravte sa na jar už teraz!</a></h2>
-                <p>Ukážeme vám krok po kroku ako vysádzať jarné cibuľoviny a tak sa pripraviť na jar</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\cibuloviny.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
-
-        <div class="clanok">
-            <div class="text">
-                <h2><a href="https://zahradkar.pluska.sk/balkon-a-terasa/viete-ktore-balkonovky-mozno-zazimovat-tieto-budu-krasne-aj-buducej-sezone">Viete, ktoré BALKÓNOVKY možno ZAZIMOVAŤ? </a></h2>
-                <p>Síce väčšinu balkónových rastlín je nutné pred zimou zlikvidovať, nájdete medzi nimi aj také, ktoré vás budú svojou krásou tešiť aj budúcu sezónu. Ktoré sú to a ako sa o ne teraz postarať?</p>
-            </div>
-            <div class="obr">
-                <p> <img src=".\public\images\balkon.jpg" alt="Generic placeholder image"></p>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 
-<section id="section-about" >
-    <div class="content">
-        <div class="clanok">
-            <h1>O nás</h1>
+<div id="delete-confrim" class="modal">
+    <form class="modal-content"  method="post" >
+        <div class="container">
+            <h1>Vymazať článok</h1>
+            <p>Vážne si prajete odstrániť tento článok?</p>
 
-            <div class="text">
-                <h2>Doprava domov</h2>
-                <h3>Samozrejme!</h3>
-                <p> Zasielky posielame pomocou Slovenskej Posty alebo Zasielkovne.</p>
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('delete-confrim').style.display='none'"  class="btn btn-secondary">Zrušiť</button>
+                <button type="submit"  onclick="document.getElementById('delete-confrim').style.display='none'" class="btn btn-danger">Odstraniť</button>
             </div>
+        </div>
+    </form>
+</div>
 
-            <div class="text">
-                <h2>Je vhodne posielat rastliny postou ?</h2>
-                <h3>Bez obav</h3>
-                <p> Rastlinky setrne zabalime a pribalime vyhrevne teleso.</p>
+
+<div class="container px-4 py-5" id="hanging-icons">
+    <h1 class="pb-2 border-bottom">Časté otázky</h1>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
             </div>
+            <div>
+                <h3 class="fs-2">Doprava</h3>
+                <p>Samozrejme! Zasielky posielame pomocou Slovenskej Pošty alebo Zasielkovne.</p>
 
-            <div class="text">
-                <h2>Prijmate reklamacie?</h2>
-                <h3>Bez problemov</h3>
-                <p>Zasielku mozte reklamovat do 2 tyzdnov</p>
             </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+            </div>
+            <div>
+                <h3 class="fs-2">Je vhodne posielat rastliny postou ?</h3>
+                <p>Bez obáv! Rastlinky šetrne zabalíme a pribalíme vyhrevné teleso.</p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+            </div>
+            <div>
+                <h3 class="fs-2"> Príjmate reklámacie?</h3>
+                <p>Bez problémov. Zásielku môžte reklamovať do 2 tyždňov</p>
 
+            </div>
         </div>
     </div>
-</section>
-
+</div>
 
 <section id="section-foundres">
-    <div class="content ">
-        <h1>Zakladatelia našej predajne</h1>
+    <div class="content">
+        <h2>Zakladatelia našej predajne</h2>
         <div class="text">
-
             <div class="box">
-                <p><img src=".\public\images\f1.jpg" alt="Instant Image"></p>
+                <p><img src="./public/images/f1.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Damián Kukurica</p>
                 </div>
             </div>
 
             <div class="box">
-                <p> <img src=".\public\images\f3.jpg" alt="Instant Image"></p>
+                <p> <img src="./public/images/f3.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Dominika Papánová</p>
                 </div>
             </div>
 
             <div class="box">
-                <p><img src=".\public\images\f2.jpg" alt="Instant Image"></p>
+                <p><img src="./public/images/f2.jpg" alt="Instant Image"></p>
                 <div class="position-text">
                     <p class="name">Hana Mrkvičková</p>
                 </div>

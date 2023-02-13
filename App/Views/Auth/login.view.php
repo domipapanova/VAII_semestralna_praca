@@ -26,6 +26,8 @@
                                     <div class="form-outline mb-4">
                                         <input name="password" type="password" id="password" class="form-control"
                                                placeholder="Password" required>
+                                        <input type="checkbox" onclick="showPassword()"> Show Password
+
                                     </div>
 
                                     <div class="text-center pt-1 mb-5 pb-1">

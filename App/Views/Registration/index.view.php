@@ -1,6 +1,7 @@
 <?php
 /** @var Array $data */
 ?>
+<script src="public/js/registration_script.js"></script>
 
 <section class="vh-100" style="background-color: #BFD9C3;">
     <div class="container h-100">
@@ -14,19 +15,18 @@
 
                                 <form name="registrationForm"  method="post" class="mx-1 mx-md-4" action="?c=registration&a=store"  onsubmit="return validateRegistration()" >
                                     <p id="main_output" hidden></p>
-
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="firstName_input" hidden></p>
-                                            <input type="text" name="firstName" id="form3Example1c" class="form-control"  />
-                                            <label class="form-label" for="form3Example1c">Meno</label>
+                                            <input type="text" name="firstName" id="form3Example1c" class="form-control"/>
+                                            <label class="form-label" for="form3Example1c" >Meno</label>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="lastName_input" hidden></p>
-                                            <input type="text" name="lastName" id="form3Example2c" class="form-control" />
+                                            <input type="text" name="lastName" id="form3Example2c" class="form-control"/>
                                             <label class="form-label" for="form3Example1c">Priezvisko</label>
                                         </div>
                                     </div>
@@ -34,23 +34,23 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="login_input" hidden></p>
-                                            <input type="text" name="login" class="form-control"  />
-                                            <label class="form-label" for="form3Example1c">* Login</label>
+                                            <input type="text" name="login" class="form-control"/>
+                                            <label class="form-label" for="form3Example1c" >* Login</label>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="email_input" hidden></p>
-                                            <input type="text" name="email" class="form-control" placeholder="name@example.com" />
-                                            <label class="form-label" for="form3Example3c">* Email</label>
+                                            <input type="text" name="email" class="form-control" placeholder="name@example.com"/>
+                                            <label class="form-label" for="form3Example3c" onchange="validateRegistration()">* Email</label>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="phone_input" hidden></p>
-                                            <input type="text" name="phoneNumber" id="form3Example5c" class="form-control" placeholder="+421" />
+                                            <input type="text" name="phoneNumber" id="form3Example5c" class="form-control" placeholder="+421"/>
                                             <label class="form-label" for="form3Example3c">Telefónne číslo</label>
                                         </div>
                                     </div>
@@ -59,8 +59,16 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="form-outline flex-fill mb-0">
                                             <p id="pswd_input" hidden></p>
-                                            <input type="password" name="password" id="form3Example6c" class="form-control" />
-                                            <label class="form-label" for="form3Example4c">* Heslo</label>
+                                            <input type="password" name="password" id="password" class="form-control"/>
+                                            <label class="form-label" for="password" >* Heslo</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <p id="pswd_check_input" hidden></p>
+                                            <input type="password" name="password_check" id="password_check" class="form-control"/>
+                                            <label class="form-label" for="password_check" >* Kontrola hesla</label>
                                         </div>
                                     </div>
 

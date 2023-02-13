@@ -17,39 +17,72 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
             integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
             crossorigin="anonymous"></script>
+    <!-- LINK NA FONT-->
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <!-- LINK NA IKONY-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="public/css/styl.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
     <script src="public/js/script.js"></script>
 </head>
+
 <body>
-<div onresize="screen_resize()"> <!-- onresize , pre javascript-->
-    <!--<div class="container"> -->
-    <section id="top">
-        <nav id="navbar">
-            <a href="domov.html" class="Plant">
-                <img src="./public/images/plant_head.png" alt="icon">
-            </a>
-            <div id="myLinks" class="navbar-nav-items">
-                <a href="?c=home">Domov</a>
-                <a href="?c=gallery">Rastliny</a>
-                <a href="?c=gallery">Kvetinace</a>
-                <a href="?c=blog">FAQ</a>
-                <a href="#section-contact">Kontakt</a>
-                <a href="?c=review">Recenzie</a>
-                <a href="?c=auth&a=logout">Odhlasenie</a>
+    <div onresize="screen_resize()"> <!-- onresize , pre javascript-->
+        <!--<div class="container">  HAHAHAH-->
+        <div class="top">
+            <nav id="navbar">
+                <a href="?c=home" class="Plant">
+                    <img src="./public/images/plant_head.png" alt="icon">
+                </a>
+                <div id="myLinks" class="navbar-nav-items">
+                    <a href="?c=home">Domov</a>
+                    <a href="?c=gallery">Rastliny</a>
+                    <a href="?c=pot">Kvetinace</a>
+                    <a href="?c=blog">FAQ</a>
+                    <a href="#section-contact">Kontakt</a>
+                    <a href="?c=review">Recenzie</a>
+                    <a href="?c=auth&a=logout">Odhlasenie</a>
 
-            </div>
+                </div>
 
-            <!--HAMBURGER , onclick - javascript -->
-            <a href="javascript:void(0);" class="Icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </nav>
-    </section>
+                <!--HAMBURGER , onclick - javascript -->
+                <a href="javascript:void(0);" class="Icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </nav>
+        </div>
 
-<div class="container-fluid mt-3">
-    <div class="web-content">
-        <?= $contentHTML ?>
+    <div class="container-fluid mt-3">
+        <div class="web-content">
+            <?= $contentHTML ?>
+        </div>
     </div>
-</div>
+
+        <div class="section-contact" id="section-contact">
+            <div class="content">
+                <p>Kontaktuj nás:</p>
+
+                <div class="personal-info">
+                    <ul class="menu personal">
+                        <li><i class="fa fa-mobile-phone"></i><a href="tel:0944673050">0944 673 050</a></li>
+                        <li><i class="fa fa fa-envelope"></i><a href="mailto:anonym@gmail.com">plantplace@gmail.com</a></li>
+                    </ul>
+                    <ul class="menu social">
+                        <li><a href="https://www.skype.com/en/"  class="social-icon" target="_blank"><i class="fa fa-skype" ></i></a></li>
+                        <li><a href="https://www.facebook.com/batman/" class="social-icon"  target="_blank"><i class="fa fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/batman"  class="social-icon" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.youtube.com/"  class="social-icon" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="https://www.twitch.tv/batman"  class="social-icon" target="_blank"><i class="fa fa-twitch"></i></a></li>
+                        <li><a href="https://www.instagram.com/" class="social-icon" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+
+            <div class="content">
+                <p> design by Domi Papánová</p>
+            </div>
+        </footer>
 </body>
 </html>

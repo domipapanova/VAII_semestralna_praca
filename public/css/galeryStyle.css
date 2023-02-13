@@ -1,0 +1,178 @@
+/*edit buttons*/
+.buttonFrom {
+    width: 90px;
+    margin-right: 2px;
+}
+.edit-buttons .btn-outline-primary {
+    width: 100%;
+}
+.edit-buttons {
+    display: inline-flex;
+}
+.search-bar {
+    width: 50%;
+    margin-bottom: 1%;
+    margin-left: 24%;
+}
+
+
+.gallery-top {
+    display: flex;
+    width: 100%;
+    height: 75px;
+}
+.createProduct {
+    margin-left: 70%;
+    margin-top: 1%;
+}
+/* titulky galerie*/
+.product-titles h1{
+    font-size: xxx-large;
+}
+
+.product-titles {
+    margin-left: 4%;
+}
+
+.infoProducts {
+    width: 100%;
+}
+.infoProducts p {
+    color: black;
+    margin-left: 4%;
+
+}
+
+.pot-info li {
+    list-style-type: circle;
+}
+
+
+/* galeria */
+
+#top #navbar{
+    z-index: 1;
+}
+
+.col:hover img{
+    opacity: 0.3;
+}
+/*delete window ------*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: silver;
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Modal Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*button .buttonInfo {
+    cursor: pointer;
+}*/
+
+.card-infoProduct {
+    display: none;
+}
+
+/* galeria */
+
+#top #navbar{
+    z-index: 1;
+}
+
+.col:hover img{
+    opacity: 0.3;
+}
+
+/* filter */
+/* Style the input field */
+#myInput {
+    padding: 20px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+}
+
+.card-infoProduct {
+    display: none;
+}
+button .buttonInfo {
+    cursor: pointer;
+}
+
+/* galeria */
+
+.top #navbar{
+    z-index: 1;
+}
+
+.col:hover img{
+    opacity: 0.3;
+}
+
+
+/* responsive design */
+@media  screen and (max-width: 576px) {
+    .product-titles h1 {
+        font-size: xx-large;
+    }
+
+    .product-titles {
+        margin-top: 20px;
+    }
+
+    .createProduct {
+        margin-left: 20%;
+        margin-top: 5%;
+    }
+
+
+}
+
+
+
+

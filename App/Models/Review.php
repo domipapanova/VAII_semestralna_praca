@@ -8,7 +8,7 @@ class Review extends Model
 {
     protected $id_review;
     protected $text;
-    protected  $meno;
+    protected $id_author;
 
     /**
      * @return mixed
@@ -19,19 +19,16 @@ class Review extends Model
     }
 
     /**
-     * @param mixed $id_review
-     */
-    public function setIdReview($id_review): void
-    {
-        $this->id_review = $id_review;
-    }
-
-    /**
      * @return mixed
      */
     public function getText()
     {
         return $this->text;
+    }
+
+    public function getName()
+    {
+        return User::getOne($this->id_author)->getFirstName() . ' ' . User::getOne($this->id_author)->getLastName();
     }
 
     /**
@@ -43,21 +40,27 @@ class Review extends Model
     }
 
 
+
+
     /**
      * @return mixed
      */
-    public function getMeno()
+    public function getIdAuthor()
     {
-        return $this->meno;
+        return $this->id_author;
     }
 
     /**
-     * @param mixed $meno
+     * @param mixed $id_author
      */
-    public function setMeno($meno): void
+    public function setIdAuthor($id_author): void
     {
-        $this->meno = $meno;
+        $this->id_author = $id_author;
     }
+
+    /**
+     * @return mixed
+     */
 
 
     static public function setTableName()
@@ -67,7 +70,7 @@ class Review extends Model
 
     static public function setDbColumns()
     {
-        return [ 'id_review' ,'text', 'meno'];
+        return [ 'id_review' ,'text', 'meno', 'id_author'];
     }
 
     public static function getPkColumnName(): string
