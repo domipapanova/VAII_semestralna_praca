@@ -5,6 +5,8 @@ function validateRegistration() {
     let email = document.forms["registrationForm"]["email"].value;
     let phoneNum = document.forms["registrationForm"]["phoneNumber"].value;
     let hash = document.forms["registrationForm"]["password"].value;
+    let hash_check = document.forms["registrationForm"]["password_check"].value;
+
 
     if((login === "" && email === "") && hash === "") {
         warning("main_output", "Prosím zadajte povinne udaje označené *");
@@ -33,12 +35,24 @@ function validateRegistration() {
         hideWarning("email_input");
     }
 
-
     if(hash === "" ) {
         warning("pswd_input","Prosím zadajte váše heslo" );
         return false;
+    } else if(!validatePassword(hash)) {
+        warning("pswd_input","Heslo musí mať aspon 8 znakov a musí obsahovať 1 male písmeno, 1 veľké písmeno a číslicu");
+        return false;
     } else {
         hideWarning("pswd_input");
+    }
+
+    if( hash_check === "" ) {
+        warning("pswd_check_input","Prosím zadajte kontrolu vášho hesla\" ");
+        return false;
+    } else if(hash !== hash_check ) {
+        warning("pswd_check_input","Heslá sa nezhodujú" );
+        return false;
+    } else {
+        hideWarning("pswd_check_input");
     }
 
     if(login.length >  30) {
@@ -100,9 +114,24 @@ function validatePhoneNumber(phonenum)
     }
 }
 
-//TODO: validate password
 function validatePassword(password) {
+    let hasLowercase = false;
+    let hasUppercase = false;
+    let hasDigit = false;
 
+    if (password.length >= 8) {
+        for (let i = 0; i < password.length; i++) {
+            let char = password[i];
+            if (char >= 'a' && char <= 'z') {
+                hasLowercase = true;
+            } else if (char >= 'A' && char <= 'Z') {
+                hasUppercase = true;
+            } else if (char >= '0' && char <= '9') {
+                hasDigit = true;
+            }
+        }
+    }
+    return hasLowercase && hasUppercase && hasDigit;
 }
 
 function warning(input, text) {

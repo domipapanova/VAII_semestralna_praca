@@ -15,7 +15,6 @@ function myFunction() {
     var x = document.getElementById("myLinks"); /* ziskam podla id  MyLinks*/
     if (x.style.display === "block") {  /*schovas ponuku*/
         x.style.display = "none";
-
     } else {
         x.style.display = "block"; /*zobrazit ponuku*/
     }

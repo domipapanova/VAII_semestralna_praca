@@ -8,11 +8,23 @@
     margin-top: 5%;
     color: white;
     font-size: 2em;
-    background: coral;
-    padding: 20px 45px;
-    border-radius: 10px;
+    padding: 30px 60px;
     display: inline-block;
     text-transform: uppercase;
+}
+.post-div {
+    padding-bottom: 6px;
+    width: 40%;
+    background: coral;
+    opacity: 80%;
+    text-align: center;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.post-header {
+    text-align: -webkit-center;
+    padding-top: 7.5%;
 }
 
 
@@ -21,7 +33,7 @@
 }
 
 .quote{
-    margin-top: 25%;
+    margin-top: 13%;
 }
 
 blockquote {
@@ -48,5 +60,18 @@ blockquote:before {
 @media  screen and (max-width: 576px) {
     .section-contact {
         margin-top: 50%;
+    }
+
+    .post-div {
+        width: 60%;
+    }
+
+    .post-title	{
+        font-size: 1.5em;
+        padding: 10px 10px;
+    }
+
+    .quote-background {
+        margin-top: 250px;
     }
 }
